@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Airspace.cs" />
+    <Compile Include="Model\iAirspace.cs" />
+    <Compile Include="Model\iTrack.cs" />
     <Compile Include="Model\Track.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
