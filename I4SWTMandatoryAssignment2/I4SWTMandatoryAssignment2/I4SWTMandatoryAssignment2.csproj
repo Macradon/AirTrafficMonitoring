@@ -46,9 +46,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\iAirspace.cs" />
+    <Compile Include="Interface\iTrack.cs" />
     <Compile Include="Model\Airspace.cs" />
-    <Compile Include="Model\iAirspace.cs" />
-    <Compile Include="Model\iTrack.cs" />
     <Compile Include="Model\Print.cs" />
     <Compile Include="Model\Track.cs" />
     <Compile Include="Program.cs" />
