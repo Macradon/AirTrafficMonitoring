@@ -50,7 +50,10 @@
     <Compile Include="Interfaces\iPrint.cs" />
     <Compile Include="Interfaces\iTrack.cs" />
     <Compile Include="Model\Airspace.cs" />
+    <Compile Include="Model\Counter.cs" />
+    <Compile Include="Model\Decrypting.cs" />
     <Compile Include="Model\Print.cs" />
+    <Compile Include="Model\Rendering.cs" />
     <Compile Include="Model\Track.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
