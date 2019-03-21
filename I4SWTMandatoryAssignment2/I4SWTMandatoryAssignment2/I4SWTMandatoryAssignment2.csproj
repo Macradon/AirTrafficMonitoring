@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\iAirspace.cs" />
+    <Compile Include="Interfaces\iCounter.cs" />
+    <Compile Include="Interfaces\iDecrypting.cs" />
     <Compile Include="Interfaces\iPrint.cs" />
+    <Compile Include="Interfaces\iRendering.cs" />
     <Compile Include="Interfaces\iTrack.cs" />
     <Compile Include="Model\Airspace.cs" />
     <Compile Include="Model\Counter.cs" />

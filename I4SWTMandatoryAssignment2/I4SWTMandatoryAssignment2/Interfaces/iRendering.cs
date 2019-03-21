@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace I4SWTMandatoryAssignment2.Model
+namespace I4SWTMandatoryAssignment2.Interfaces
 {
-    public class Decrypting
+    interface iRendering
     {
-
     }
 }

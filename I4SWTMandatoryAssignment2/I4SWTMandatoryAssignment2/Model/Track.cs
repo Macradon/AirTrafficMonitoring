@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace I4SWTMandatoryAssignment2.Model
 {
-    public class Track
+    public class Track : iTrack
     {
         //attributes
         private string _tag;

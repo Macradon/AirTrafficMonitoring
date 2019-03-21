@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace I4SWTMandatoryAssignment2.Model
 {
-    public class Print
+    public class Print : iPrint
     {
         public void print(string msg)
         {

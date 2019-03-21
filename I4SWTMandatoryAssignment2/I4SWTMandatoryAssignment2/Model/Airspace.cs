@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace I4SWTMandatoryAssignment2.Model
 {
-    public class Airspace
+    public class Airspace : iAirspace
     {
         public int swCornerX { get; set; }
         public int swCornerY { get; set; }
