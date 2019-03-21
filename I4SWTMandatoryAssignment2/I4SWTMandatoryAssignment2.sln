@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I4SWTMandatoryAssignment2", "I4SWTMandatoryAssignment2\I4SWTMandatoryAssignment2.csproj", "{2B03D021-AA63-4879-8D57-D54AECABC222}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.Unit.Test", "ATM.Unit.Test\ATM.Unit.Test.csproj", "{A2BCBFC8-B21B-4758-9BBE-0B571312FFE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2B03D021-AA63-4879-8D57-D54AECABC222}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B03D021-AA63-4879-8D57-D54AECABC222}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B03D021-AA63-4879-8D57-D54AECABC222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2BCBFC8-B21B-4758-9BBE-0B571312FFE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2BCBFC8-B21B-4758-9BBE-0B571312FFE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2BCBFC8-B21B-4758-9BBE-0B571312FFE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2BCBFC8-B21B-4758-9BBE-0B571312FFE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
