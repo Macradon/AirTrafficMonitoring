@@ -17,9 +17,9 @@ namespace I4SWTMandatoryAssignment2.Model
 
         //Properties R/W
         public string Tag { get; set; }
-        public string Xcoor { get; set; }
-        public string Ycoor { get; set; }
-        public string Altitude { get; set; }
+        public int Xcoor { get; set; }
+        public int Ycoor { get; set; }
+        public int Altitude { get; set; }
         public DateTime TimeStamp { get; set; }
 
         //Contstructor init
