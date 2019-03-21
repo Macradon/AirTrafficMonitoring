@@ -46,16 +46,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\iAirspace.cs" />
-    <Compile Include="Interface\iTrack.cs" />
+    <Compile Include="Interfaces\IAirspace.cs" />
+    <Compile Include="Interfaces\iPrint.cs" />
+    <Compile Include="Interfaces\iTrack.cs" />
     <Compile Include="Model\Airspace.cs" />
     <Compile Include="Model\Print.cs" />
     <Compile Include="Model\Track.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\I4SWTMandatoryAssignment2.exe.config" />
+    <None Include="obj\Release\I4SWTMandatoryAssignment2.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Release\I4SWTMandatoryAssignment2.csprojAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\I4SWTMandatoryAssignment2.exe" />
+    <Content Include="bin\Debug\I4SWTMandatoryAssignment2.pdb" />
+    <Content Include="bin\Debug\TransponderReceiver.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
