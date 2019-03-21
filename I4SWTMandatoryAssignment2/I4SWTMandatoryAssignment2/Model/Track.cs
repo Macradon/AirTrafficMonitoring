@@ -43,10 +43,11 @@ namespace I4SWTMandatoryAssignment2.Model
         public override string ToString()
         {
             String.Format("Tag: {0} \r\n" +
-                          "X koordinater: {1} \r\n" +
-                          "Y koordinater: {2} \r\n" +
-                          "Altitude: {3} \r\n",
-                          _tag, _x, _y, _alt);
+                          "XY-Pos: {1} \r\n" +
+                          "Altitude: {2} \r\n" +
+                          "Velocity: {3} \r\n" +
+                          "Compass Course: {4}",
+                          _tag, _x, _y, _alt, _compass);
 
             return base.ToString();
         }

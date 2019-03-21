@@ -46,7 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IAirspace.cs" />
+    <Compile Include="Interfaces\iAirspace.cs" />
     <Compile Include="Interfaces\iPrint.cs" />
     <Compile Include="Interfaces\iTrack.cs" />
     <Compile Include="Model\Airspace.cs" />
