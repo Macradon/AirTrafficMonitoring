@@ -41,11 +41,11 @@ namespace ATM.Test.Unit
             Assert.That(uut.positionTrack(track), Is.EqualTo(true));
         }
 
-        //Minimum tilladt x, y og z værdi
+        //x, y og z værdier for lave
         [TestCase(-1, 40000, 10000)]
         [TestCase(40000, -1, 15000)]
         [TestCase(30000, 20000, 499)]
-        //Maximum tilladt for x, y og z værdi
+        //x, y og z værdier for høje
         [TestCase(80001, 40000, 10000)]
         [TestCase(40000, 80001, 15000)]
         [TestCase(30000, 20000, 20001)]

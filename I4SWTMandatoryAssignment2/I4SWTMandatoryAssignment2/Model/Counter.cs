@@ -12,6 +12,11 @@ namespace I4SWTMandatoryAssignment2.Model
 
         public int TrackCounter { get; set; }
 
+        public Counter()
+        {
+            _trackCounter = 0;
+        }
+
         public void addTrack()
         {
             _trackCounter++;
