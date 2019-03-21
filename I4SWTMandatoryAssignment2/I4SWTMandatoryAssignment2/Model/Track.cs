@@ -28,6 +28,8 @@ namespace I4SWTMandatoryAssignment2.Model
 
         //Contstructor init
 
+        public Track() { }
+
         public Track(string tag, int xcoor, int ycoor, int altitude, DateTime timestamp)
         {
             _tag = tag;
