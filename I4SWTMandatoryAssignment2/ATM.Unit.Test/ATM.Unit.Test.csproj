@@ -58,6 +58,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\I4SWTMandatoryAssignment2\I4SWTMandatoryAssignment2.csproj">
+      <Project>{2b03d021-aa63-4879-8d57-d54aecabc222}</Project>
+      <Name>I4SWTMandatoryAssignment2</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
