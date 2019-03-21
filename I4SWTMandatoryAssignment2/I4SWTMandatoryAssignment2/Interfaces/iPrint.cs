@@ -9,8 +9,6 @@ namespace I4SWTMandatoryAssignment2.Model
     interface iPrint
     {
         void print(string msg);
-
         void Clear();
-        
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace I4SWTMandatoryAssignment2.Model
 {
-    class Rendering
+    class Rendering : iRendering
     {
+
     }
 }

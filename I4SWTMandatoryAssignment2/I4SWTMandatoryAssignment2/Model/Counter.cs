@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace I4SWTMandatoryAssignment2.Model
 {
-    class Counter
+    public class Counter : iCounter
     {
+        private int _trackCounter;
+
+        public int TrackCounter { get; set; }
+
+        public void addTrack()
+        {
+            _trackCounter++;
+        }
+
+        public void subtractTrack()
+        {
+            if (_trackCounter > 0)
+            {
+                _trackCounter--;
+            }
+        }
     }
 }
