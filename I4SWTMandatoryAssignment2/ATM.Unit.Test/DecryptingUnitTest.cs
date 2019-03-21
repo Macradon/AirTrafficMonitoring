@@ -13,13 +13,12 @@ namespace ATM.Unit.Test
     class DecryptingUnitTest
     {
         private Decrypting uut;
-        private Track track;
         private string transponder;
 
         [SetUp]
         public void setup()
         {
-            uut = new Decrypting("Boe747;12345;54321;22222;20190321123456789");
+            uut = new Decrypting("");
             transponder = "Boe747;12345;54321;22222;20190321123456789";
         }
         
