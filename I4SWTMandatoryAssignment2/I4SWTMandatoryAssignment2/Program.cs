@@ -11,7 +11,7 @@ namespace I4SWTMandatoryAssignment2
     {
         static void Main(string[] args)
         {
-            //Lol test til at push fordi jeg ikke kan lide VisualStudioGit
+            
         }
     }
 }
