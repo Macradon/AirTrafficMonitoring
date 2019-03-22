@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using I4SWTMandatoryAssignment2.Model;
+using TransponderReceiver;
+
+
 
 
 namespace ATM.Unit.Test
@@ -14,10 +17,12 @@ namespace ATM.Unit.Test
     {
         private Decrypting uut;
         private string transponder;
+        
 
-        [SetUp]
+       [SetUp]
         public void setup()
         {
+
             uut = new Decrypting("");
             transponder = "Boe747;12345;54321;22222;20190321123456789";
         }

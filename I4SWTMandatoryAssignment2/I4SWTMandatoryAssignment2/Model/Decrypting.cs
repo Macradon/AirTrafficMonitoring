@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;  //Used for DateTime
+using TransponderReceiver;
+
 
 namespace I4SWTMandatoryAssignment2.Model
 {
     public class Decrypting : iDecrypting
     {
-        //public Decrypting(iTransponderReceiver TransponderReceiver)
         public Decrypting(string data)
         {
+            
+
 
         }
-
 
         public Track displayTrack(string currentTrack)
         {
@@ -31,5 +33,10 @@ namespace I4SWTMandatoryAssignment2.Model
 
             return track;
         }
+
+
     }
+
+       
+    
 }

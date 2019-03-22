@@ -30,6 +30,7 @@ namespace I4SWTMandatoryAssignment2.Model
 
         }
 
+        //Undersøger om tracken er i 
         public bool positionTrack(Track track)
         {
             if (track.Xcoor >= swCornerX && track.Xcoor <= neCornerX &&
