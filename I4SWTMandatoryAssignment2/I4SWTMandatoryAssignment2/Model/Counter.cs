@@ -29,5 +29,10 @@ namespace I4SWTMandatoryAssignment2.Model
                 _trackCounter--;
             }
         }
+
+        public int getTracks()
+        {
+            return _trackCounter;
+        }
     }
 }

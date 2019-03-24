@@ -10,5 +10,6 @@ namespace I4SWTMandatoryAssignment2.Model
     {
         void addTrack();
         void subtractTrack();
+        int getTracks();
     }
 }
