@@ -24,7 +24,7 @@ namespace ATM.Unit.Test
         {
 
             uut = new Decrypting("");
-            transponder = "Boe747;12345;54321;22222;20190321123456789";
+            transponder = "Boe747;12345;54321;2222;20190321123456789";
         }
         
         [Test]
@@ -48,7 +48,7 @@ namespace ATM.Unit.Test
         [Test]
         public void CorrectTrackAltitude()
         {
-            Assert.That(uut.displayTrack(transponder).Altitude, Is.EqualTo(22222));
+            Assert.That(uut.displayTrack(transponder).Altitude, Is.EqualTo(2222));
         }
 
         [Test]

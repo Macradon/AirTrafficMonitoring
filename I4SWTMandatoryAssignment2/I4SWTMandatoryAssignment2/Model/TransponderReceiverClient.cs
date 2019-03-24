@@ -21,6 +21,8 @@ namespace TransponderReceiverUser
         {
             System.Console.Clear();
             Counter count = new Counter();
+            Track track = new Track();
+            Decrypting decrypt = new Decrypting("");
 
             // Just display data
             foreach (var data in e.TransponderData)
@@ -32,7 +34,8 @@ namespace TransponderReceiverUser
 
             foreach (var data in e.TransponderData)
             {
-                System.Console.WriteLine($"Transponderdata {data}");
+                track = decrypt.displayTrack(data.ToString());
+                System.Console.WriteLine($"Transponderdata {track.Altitude}");
             }
         }
     }
