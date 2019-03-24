@@ -13,12 +13,10 @@ namespace I4SWTMandatoryAssignment2.Model
     {
         public Decrypting(string data)
         {
-            
-
 
         }
 
-        public Track displayTrack(string currentTrack)
+        public Track decryptTrack(string currentTrack)
         {
             var track = new Track();
             CultureInfo provider = CultureInfo.InvariantCulture;

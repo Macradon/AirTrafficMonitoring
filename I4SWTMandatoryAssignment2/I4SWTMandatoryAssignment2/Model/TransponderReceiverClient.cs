@@ -1,5 +1,6 @@
 ﻿using TransponderReceiver;
 using I4SWTMandatoryAssignment2.Model;
+using I4SWTMandatoryAssignment2;
 
 namespace TransponderReceiverUser
 {
@@ -23,6 +24,9 @@ namespace TransponderReceiverUser
             Counter count = new Counter();
             Track track = new Track();
             Decrypting decrypt = new Decrypting("");
+            Print print = new Print();
+            Rendering render = new Rendering(print);
+            
 
             // Just display data
             foreach (var data in e.TransponderData)
@@ -34,8 +38,8 @@ namespace TransponderReceiverUser
 
             foreach (var data in e.TransponderData)
             {
-                track = decrypt.displayTrack(data.ToString());
-                System.Console.WriteLine($"Transponderdata {track.Altitude}");
+                track = decrypt.decryptTrack(data.ToString());
+                render.TracksRender(track);
             }
         }
     }

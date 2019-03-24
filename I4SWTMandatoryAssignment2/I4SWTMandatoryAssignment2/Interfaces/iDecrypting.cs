@@ -11,6 +11,6 @@ namespace I4SWTMandatoryAssignment2.Model
     {
         
 
-        Track displayTrack(string currentTrack);
+        Track decryptTrack(string currentTrack);
     }
 }

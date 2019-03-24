@@ -30,79 +30,79 @@ namespace ATM.Unit.Test
         [Test]
         public void CorrectTrackTag()
         {
-            Assert.That(uut.displayTrack(transponder).Tag, Is.EqualTo("Boe747"));
+            Assert.That(uut.decryptTrack(transponder).Tag, Is.EqualTo("Boe747"));
         }
 
         [Test]
         public void CorrectTrackXcoor()
         {
-            Assert.That(uut.displayTrack(transponder).Xcoor, Is.EqualTo(12345));
+            Assert.That(uut.decryptTrack(transponder).Xcoor, Is.EqualTo(12345));
         }
 
         [Test]
         public void CorrectTrackYcoor()
         {
-            Assert.That(uut.displayTrack(transponder).Ycoor, Is.EqualTo(54321));
+            Assert.That(uut.decryptTrack(transponder).Ycoor, Is.EqualTo(54321));
         }
 
         [Test]
         public void CorrectTrackAltitude()
         {
-            Assert.That(uut.displayTrack(transponder).Altitude, Is.EqualTo(2222));
+            Assert.That(uut.decryptTrack(transponder).Altitude, Is.EqualTo(2222));
         }
 
         [Test]
         public void CorrectTrackTimestampYear()
         {
-            Assert.That(uut.displayTrack(transponder).TimeStamp.Year, Is.EqualTo(2019));
+            Assert.That(uut.decryptTrack(transponder).TimeStamp.Year, Is.EqualTo(2019));
         }
 
         [Test]
         public void CorrectTrackTimestampMonth()
         {
-            Assert.That(uut.displayTrack(transponder).TimeStamp.Month, Is.EqualTo(3));
+            Assert.That(uut.decryptTrack(transponder).TimeStamp.Month, Is.EqualTo(3));
         }
 
         [Test]
         public void CorrectTrackTimestampDay()
         {
-            Assert.That(uut.displayTrack(transponder).TimeStamp.Day, Is.EqualTo(21));
+            Assert.That(uut.decryptTrack(transponder).TimeStamp.Day, Is.EqualTo(21));
         }
 
         [Test]
         public void CorrectTrackTimestampHour()
         {
-            Assert.That(uut.displayTrack(transponder).TimeStamp.Hour, Is.EqualTo(12));
+            Assert.That(uut.decryptTrack(transponder).TimeStamp.Hour, Is.EqualTo(12));
         }
 
         [Test]
         public void CorrectTrackTimestampMinute()
         {
-            Assert.That(uut.displayTrack(transponder).TimeStamp.Minute, Is.EqualTo(34));
+            Assert.That(uut.decryptTrack(transponder).TimeStamp.Minute, Is.EqualTo(34));
         }
 
         [Test]
         public void CorrectTrackTimestampSecond()
         {
-            Assert.That(uut.displayTrack(transponder).TimeStamp.Second, Is.EqualTo(56));
+            Assert.That(uut.decryptTrack(transponder).TimeStamp.Second, Is.EqualTo(56));
         }
 
         [Test]
         public void CorrectTrackTimestampMillisecond()
         {
-            Assert.That(uut.displayTrack(transponder).TimeStamp.Millisecond, Is.EqualTo(789));
+            Assert.That(uut.decryptTrack(transponder).TimeStamp.Millisecond, Is.EqualTo(789));
         }
 
         [Test]
         public void CorrectTrackVelocity()
         {
-            Assert.That(uut.displayTrack(transponder).Velocity, Is.EqualTo(0));
+            Assert.That(uut.decryptTrack(transponder).Velocity, Is.EqualTo(0));
         }
 
         [Test]
         public void CorrectTrackCompass()
         {
-            Assert.That(uut.displayTrack(transponder).Compass, Is.EqualTo(0));
+            Assert.That(uut.decryptTrack(transponder).Compass, Is.EqualTo(0));
         }
     }
 }
