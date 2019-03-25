@@ -55,7 +55,7 @@ namespace ATM.Unit.Test
             
         }
 
-        [Test]
+        [Test] //Tester for om den counter når tracks bliver added
         public void countTracks_AddTracksCountedTest1()
         {
             
@@ -68,12 +68,14 @@ namespace ATM.Unit.Test
         public void counTracks_AddTracksCountedTest2()
         {
 
-            uut.addTrack();
-            uut.addTrack();
+           for (int i = 0; i < 2; i++)
+            {
+                uut.addTrack();
+            }
             Assert.That(uut.getTracks(), Is.EqualTo(nr2));
         }
 
-        [Test]
+        [Test] //Tester britta nielsens yndlings funktion :)
         public void counTracks_SubtrackTracksCountedTest1()
         {
             for (int i = 0; i < 2; i++)
