@@ -8,6 +8,6 @@ namespace I4SWTMandatoryAssignment2.Model
 {
     interface iAirspace
     {
-        bool positionTrack(Track track);
+        bool checkAirspace(Track track);
     }
 }

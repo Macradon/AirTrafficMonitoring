@@ -13,7 +13,6 @@ namespace I4SWTMandatoryAssignment2
     {
         static void Main(string[] args)
         {
-            Counter count = new Counter();
             var receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
             var system = new TransponderReceiverUser.TransponderReceiverClient(receiver);
 
