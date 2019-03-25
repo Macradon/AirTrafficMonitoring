@@ -1,4 +1,5 @@
-﻿using TransponderReceiver;
+﻿using System;
+using TransponderReceiver;
 using I4SWTMandatoryAssignment2.Model;
 using I4SWTMandatoryAssignment2;
 
@@ -43,13 +44,20 @@ namespace TransponderReceiverUser
             {
                 newTrack = decrypt.decryptTrack(data.ToString());
                 if (airspace.checkAirspace(newTrack) == true)
-                    count.addTrack();
+                { }
             }
 
-            System.Console.Write("Number of Tracks: {0}\n", count.getTracks());
+            //System.Console.Write("Number of Tracks: {0}\n", count.getTracks());
+            Track[] index = new Track[50];
+            for (int i = 0; i < 50; i++)
+                index[i] = decrypt.decryptTrack("000000;0000;0000;0000;20190321123456789");
 
             foreach (var data in e.TransponderData)
             {
+                index[count.getTracks()] = newTrack;
+                count.addTrack();
+
+
                 formerTrack.Xcoor = formerX;
                 formerTrack.Ycoor = formerY;
 
@@ -62,6 +70,14 @@ namespace TransponderReceiverUser
                     newTrack = decrypt.decryptTrackVelocity(formerTrack, newTrack);
                     newTrack = decrypt.decryptTrackCompass(centerPos, newTrack);
                     render.TracksRender(newTrack);
+                    for (int i = 1; i < count.getTracks(); i++)
+                    {
+                        if (Math.Sqrt((Math.Pow((index[count.getTracks() - 1].Xcoor - index[i - 1].Xcoor), 2) + (Math.Pow((index[count.getTracks() - 1].Xcoor - index[i - 1].Xcoor), 2)))) < 5000 &&
+                           (Math.Abs(index[count.getTracks() - 1].Xcoor - index[i - 1].Xcoor) < 300))
+                        {
+                            print.print("Conflict between " + index[count.getTracks() - 1].Tag + " & " + index[i - 1].Tag);
+                        }
+                    }
                 }
             }
         }
