@@ -11,6 +11,8 @@ namespace TransponderReceiverUser
 
         private int formerX = 0;
         private int formerY = 0;
+        private bool[] condition = new bool[20] { false, false, false, false, false, false, false, false, false, false,
+                                                  false, false, false, false, false, false, false, false, false, false };
 
         // Using constructor injection for dependency/ies
         public TransponderReceiverClient(ITransponderReceiver receiver)
@@ -40,14 +42,19 @@ namespace TransponderReceiverUser
             
 
             // Just display data
-            Track[] index = new Track[50];
-            for (int i = 0; i < 50; i++)
-                index[i] = decrypt.decryptTrack("000000;0000;0000;0000;20190321123456789");
+            Track[] index = new Track[20];
+            Track[] conditions = new Track[20];
+            
+            for (int i = 0; i < 20; i++)
+            {
+                index[i] = decrypt.decryptTrack("000000;0000;0000;0000;20190321000000000");
+                conditions[i] = decrypt.decryptTrack("000000;0000;0000;0000;20190321000000000");
+            }
 
 
             foreach (var data in e.TransponderData)
             {
-                index[count.getTracks()] = newTrack;
+                
 
                 formerTrack.Xcoor = formerX;
                 formerTrack.Ycoor = formerY;
@@ -56,21 +63,34 @@ namespace TransponderReceiverUser
                 formerY = newTrack.Ycoor;
 
                 newTrack = decrypt.decryptTrack(data);
-                if (airspace.checkAirspace(newTrack) == true)
+                //if (airspace.checkAirspace(newTrack) == true)
                 {
-                    count.addTrack();
+                    
                     newTrack = decrypt.decryptTrackVelocity(formerTrack, newTrack);
                     newTrack = decrypt.decryptTrackCompass(centerPos, newTrack);
                     render.TracksRender(newTrack);
-                    for (int i = 1; i < count.getTracks(); i++)
+                    index[count.getTracks()] = newTrack;
+                    for (int i = 0; i < count.getTracks(); i++)
                     {
-                        if (newTrack.checkConflict(index[count.getTracks() - 1], index[i - 1]) == true)
-                            print.print("   Conflict between " + index[count.getTracks() - 1].Tag + " & " + index[i - 1].Tag +
-                                "   " + index[i-1].TimeStamp.Day + "/" + index[i - 1].TimeStamp.Month + "-" + index[i - 1].TimeStamp.Year +
-                                " " + index[i - 1].TimeStamp.Hour + ":" + index[i - 1].TimeStamp.Minute + ":" + index[i - 1].TimeStamp.Second +
-                                "." + index[i - 1].TimeStamp.Millisecond);
+                        if (newTrack.checkConflict(index[count.getTracks() - 1], index[i + 1]) == true)
+                        {
+                            if (condition[i] == false)
+                            {
+                                conditions[i].TimeStamp = index[i].TimeStamp;
+                                condition[i] = true;
+                            }
+                            print.print("   Conflict between " + index[count.getTracks() - 0].Tag + " & " + index[i].Tag +
+                                "   " + conditions[i].TimeStamp.Day + "/" + conditions[i].TimeStamp.Month + "-" + conditions[i].TimeStamp.Year +
+                                " " + conditions[i].TimeStamp.Hour + ":" + conditions[i].TimeStamp.Minute + ":" + conditions[i].TimeStamp.Second +
+                                "." + conditions[i].TimeStamp.Millisecond);
+                        }
+                        else
+                        {
+                            condition[i] = false;
+                        }
                     }
-                }
+                    count.addTrack();
+                }   
             }
             System.Console.Write("Number of Tracks: {0}\n", count.getTracks());
         }
