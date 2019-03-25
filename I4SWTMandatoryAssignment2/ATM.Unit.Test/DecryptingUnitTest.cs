@@ -121,9 +121,15 @@ namespace ATM.Unit.Test
 
         [TestCase(45000, 45000, 75000, 85000, 53.13)]   //Track moving NE
         [TestCase(45000, 45000, 15000, 85000, 126.87)]  //Track moving NW
-        [TestCase(45000, 45000, 15000, 5000, 233.13)]  //Track moving SW
-        [TestCase(45000, 45000, 75000, 5000, 306.87)]  //Track moving SE
+        [TestCase(45000, 45000, 15000, 5000, 233.13)]   //Track moving SW
+        [TestCase(45000, 45000, 75000, 5000, 306.87)]   //Track moving SE
+
         [TestCase(45000, 45000, 45000, 45000, 0)]       //Track not moving
+
+        [TestCase(45000, 45000, 75000, 45000, 0)]      //Track moving East
+        [TestCase(45000, 45000, 45000, 85000, 90)]      //Track moving North
+        [TestCase(45000, 45000, 15000, 45000, 180)]      //Track moving West
+        [TestCase(45000, 45000, 45000, 5000, 270)]       //Track moving South
         public void newCalculatedCompass(int x1, int y1, int x2, int y2, double result)
         {
             Track centerPos = new Track()
