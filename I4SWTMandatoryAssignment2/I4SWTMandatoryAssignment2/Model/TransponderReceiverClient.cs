@@ -41,13 +41,11 @@ namespace TransponderReceiverUser
             
 
             // Just display data
-            Track[] index = new Track[20];
-            Track[] conditions = new Track[20];
+            Track[] index = new Track[50];
             
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 50; i++)
             {
                 index[i] = decrypt.decryptTrack("000000;0000;0000;0000;20190321000000000");
-                conditions[i] = decrypt.decryptTrack("000000;0000;0000;0000;20190321000000000");
             }
 
 
@@ -60,7 +58,7 @@ namespace TransponderReceiverUser
                 formerY = newTrack.Ycoor;
 
                 newTrack = decrypt.decryptTrack(data);
-                //if (airspace.checkAirspace(newTrack) == true)
+                if (airspace.checkAirspace(newTrack) == true)
                 {
                     
                     newTrack = decrypt.decryptTrackVelocity(formerTrack, newTrack);
@@ -69,7 +67,7 @@ namespace TransponderReceiverUser
                     index[count.getTracks()] = newTrack;
                     for (int i = 0; i < count.getTracks(); i++)
                     {
-                        if (newTrack.checkConflict(index[count.getTracks() - 1], index[i]) == false)
+                        if (newTrack.checkConflict(index[count.getTracks() - 1], index[i]) == true)
                         {
                             print.print("   Conflict between " + index[count.getTracks()].Tag + " & " + index[i].Tag +
                                 "   " + index[i].TimeStamp.Day + "/" + index[i].TimeStamp.Month + "-" + index[i].TimeStamp.Year +
