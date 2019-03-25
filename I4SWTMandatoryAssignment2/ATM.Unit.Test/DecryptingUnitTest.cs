@@ -26,9 +26,9 @@ namespace ATM.Unit.Test
         {
 
             uut = new Decrypting("");
-            transponder = "Boe747;12345;54321;2222;20190321123456789";
+            transponder =    "Boe747;12345;54321;2222;20190321123456789";
             formerPosition = "Boe747;10000;10000;2222;20190321123456789";
-            newPosition = "Boe747;40000;50000;2222;20190321123456789";
+            newPosition =    "Boe747;40000;50000;2222;20190321123456789";
         }
         
         [Test]
@@ -119,6 +119,27 @@ namespace ATM.Unit.Test
             Assert.That(uut.decryptTrackVelocity(formerTrack, newTrack).Velocity, Is.EqualTo(50000)); //Pythagoras: 30000^2 + 40000^2 = 50000^2
         }
 
+        [TestCase(45000, 45000, 75000, 85000, 53.13)]   //Track moving NE
+        [TestCase(45000, 45000, 15000, 85000, 126.87)]  //Track moving NW
+        [TestCase(45000, 45000, 15000, 5000, 233.13)]  //Track moving SW
+        [TestCase(45000, 45000, 75000, 5000, 306.87)]  //Track moving SE
+        [TestCase(45000, 45000, 45000, 45000, 0)]       //Track not moving
+        public void newCalculatedCompass(int x1, int y1, int x2, int y2, double result)
+        {
+            Track centerPos = new Track()
+            {
+                Xcoor = x1,
+                Ycoor = y1,
+            };
+
+            Track newTrack = new Track()
+            {
+                Xcoor = x2,
+                Ycoor = y2,
+            };
+
+            Assert.That(uut.decryptTrackCompass(centerPos, newTrack).Compass, Is.EqualTo(result));
+        }
 
     }
 }

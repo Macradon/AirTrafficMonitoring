@@ -31,6 +31,11 @@ namespace TransponderReceiverUser
             Airspace airspace = new Airspace();
             Track newTrack = new Track();
             Track formerTrack = new Track();
+            Track centerPos = new Track()
+            {
+                Xcoor = (airspace.neCornerX - airspace.swCornerX) / 2,
+                Ycoor = (airspace.neCornerY - airspace.swCornerY) / 2
+            };
             
 
             // Just display data
@@ -52,10 +57,10 @@ namespace TransponderReceiverUser
                 formerY = newTrack.Ycoor;
 
                 newTrack = decrypt.decryptTrack(data);
-                if (airspace.checkAirspace(newTrack) == true)
+                //if (airspace.checkAirspace(newTrack) == true)
                 {
                     newTrack = decrypt.decryptTrackVelocity(formerTrack, newTrack);
-                    newTrack = decrypt.decryptTrackCompass(formerTrack, newTrack);
+                    newTrack = decrypt.decryptTrackCompass(centerPos, newTrack);
                     render.TracksRender(newTrack);
                 }
             }
