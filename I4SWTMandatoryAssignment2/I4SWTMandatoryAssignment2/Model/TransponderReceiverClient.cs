@@ -44,6 +44,7 @@ namespace TransponderReceiverUser
             for (int i = 0; i < 50; i++)
                 index[i] = decrypt.decryptTrack("000000;0000;0000;0000;20190321123456789");
 
+
             foreach (var data in e.TransponderData)
             {
                 index[count.getTracks()] = newTrack;
@@ -64,7 +65,10 @@ namespace TransponderReceiverUser
                     for (int i = 1; i < count.getTracks(); i++)
                     {
                         if (newTrack.checkConflict(index[count.getTracks() - 1], index[i - 1]) == true)
-                            print.print("   Conflict between " + index[count.getTracks() - 1].Tag + " & " + index[i - 1].Tag);
+                            print.print("   Conflict between " + index[count.getTracks() - 1].Tag + " & " + index[i - 1].Tag +
+                                "   " + index[i-1].TimeStamp.Day + "/" + index[i - 1].TimeStamp.Month + "-" + index[i - 1].TimeStamp.Year +
+                                " " + index[i - 1].TimeStamp.Hour + ":" + index[i - 1].TimeStamp.Minute + ":" + index[i - 1].TimeStamp.Second +
+                                "." + index[i - 1].TimeStamp.Millisecond);
                     }
                 }
             }
