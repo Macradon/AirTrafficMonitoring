@@ -16,8 +16,9 @@ namespace ATM.Test.Unit
         private Airspace uut;
         private Track track;
 
+        
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             uut = new Airspace();
         }
