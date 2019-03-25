@@ -13,13 +13,7 @@ namespace I4SWTMandatoryAssignment2
     {
         static void Main(string[] args)
         {
-            var receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
-            var system = new TransponderReceiverUser.TransponderReceiverClient(receiver);
-
-            while (true)
-            {
-                Thread.Sleep(1000);
-            }
+            
         }
     }
 }
