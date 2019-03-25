@@ -13,7 +13,7 @@ namespace I4SWTMandatoryAssignment2.Model
         private int _x;
         private int _y;
         private int _alt;
-        private int _velocity;
+        private double _velocity;
         private int _compass;
         private DateTime _timestamp;
 
@@ -22,7 +22,7 @@ namespace I4SWTMandatoryAssignment2.Model
         public int Xcoor { get; set; }
         public int Ycoor { get; set; }
         public int Altitude { get; set; }
-        public int Velocity { get; set; }
+        public double Velocity { get; set; }
         public int Compass { get; set; }
         public DateTime TimeStamp { get; set; }
 

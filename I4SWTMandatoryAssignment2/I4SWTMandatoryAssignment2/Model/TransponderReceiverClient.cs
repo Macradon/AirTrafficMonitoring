@@ -8,6 +8,9 @@ namespace TransponderReceiverUser
     {
         private ITransponderReceiver receiver;
 
+        private int formerX = 0;
+        private int formerY = 0;
+
         // Using constructor injection for dependency/ies
         public TransponderReceiverClient(ITransponderReceiver receiver)
         {
@@ -22,18 +25,19 @@ namespace TransponderReceiverUser
         {
             System.Console.Clear();
             Counter count = new Counter();
-            Track track = new Track();
             Decrypting decrypt = new Decrypting("");
             Print print = new Print();
             Rendering render = new Rendering(print);
             Airspace airspace = new Airspace();
+            Track newTrack = new Track();
+            Track formerTrack = new Track();
             
 
             // Just display data
             foreach (var data in e.TransponderData)
             {
-                track = decrypt.decryptTrack(data.ToString());
-                if (airspace.checkAirspace(track) == true)
+                newTrack = decrypt.decryptTrack(data.ToString());
+                if (airspace.checkAirspace(newTrack) == true)
                     count.addTrack();
             }
 
@@ -41,9 +45,18 @@ namespace TransponderReceiverUser
 
             foreach (var data in e.TransponderData)
             {
-                track = decrypt.decryptTrack(data.ToString());
-                if (airspace.checkAirspace(track) == true)
-                    render.TracksRender(track);
+                formerTrack.Xcoor = formerX;
+                formerTrack.Ycoor = formerY;
+
+                formerX = newTrack.Xcoor;
+                formerY = newTrack.Ycoor;
+
+                newTrack = decrypt.decryptTrack(data.ToString());
+                //if (airspace.checkAirspace(newTrack) == true)
+                {
+                    newTrack = decrypt.decryptTrackVelocity(newTrack, formerTrack);
+                    render.TracksRender(newTrack);
+                }
             }
         }
     }
