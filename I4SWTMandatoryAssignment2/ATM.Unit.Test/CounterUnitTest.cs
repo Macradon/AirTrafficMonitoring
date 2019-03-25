@@ -27,7 +27,7 @@ namespace ATM.Unit.Test
         [SetUp]
         public void Setup()
         {
-            uut = new Counter();
+            uut =  new Counter();
            
 
             _track1 = new Track()

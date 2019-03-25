@@ -45,16 +45,9 @@ namespace I4SWTMandatoryAssignment2.Model
         }
 
         //Formater function
-        public override string ToString()
+        public bool checkConflict(Track track1, Track track2)
         {
-            String.Format("Tag: {0} \r\n" +
-                          "XY-Pos: {1} \r\n" +
-                          "Altitude: {2} \r\n" +
-                          "Velocity: {3} \r\n" +
-                          "Compass Course: {4}",
-                          _tag, _x, _y, _alt, _compass);
-
-            return base.ToString();
+            return true;
         }
 
     }

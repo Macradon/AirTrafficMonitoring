@@ -15,9 +15,11 @@ namespace I4SWTMandatoryAssignment2.Model
         public int neCornerY { get; set; }
         public int minAlt { get; set; }
         public int maxAlt { get; set; }
+        
 
         public Airspace()
         {
+            
 
             swCornerX = 5000;
             swCornerY = 5000;
@@ -41,5 +43,7 @@ namespace I4SWTMandatoryAssignment2.Model
                 return false;
    
         }
+
+       
     }
 }
