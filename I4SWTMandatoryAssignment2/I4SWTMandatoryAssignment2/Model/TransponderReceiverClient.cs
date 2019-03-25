@@ -40,14 +40,6 @@ namespace TransponderReceiverUser
             
 
             // Just display data
-            foreach (var data in e.TransponderData)
-            {
-                newTrack = decrypt.decryptTrack(data.ToString());
-                if (airspace.checkAirspace(newTrack) == true)
-                { }
-            }
-
-            //System.Console.Write("Number of Tracks: {0}\n", count.getTracks());
             Track[] index = new Track[50];
             for (int i = 0; i < 50; i++)
                 index[i] = decrypt.decryptTrack("000000;0000;0000;0000;20190321123456789");
@@ -55,8 +47,6 @@ namespace TransponderReceiverUser
             foreach (var data in e.TransponderData)
             {
                 index[count.getTracks()] = newTrack;
-                count.addTrack();
-
 
                 formerTrack.Xcoor = formerX;
                 formerTrack.Ycoor = formerY;
@@ -67,6 +57,7 @@ namespace TransponderReceiverUser
                 newTrack = decrypt.decryptTrack(data);
                 if (airspace.checkAirspace(newTrack) == true)
                 {
+                    count.addTrack();
                     newTrack = decrypt.decryptTrackVelocity(formerTrack, newTrack);
                     newTrack = decrypt.decryptTrackCompass(centerPos, newTrack);
                     render.TracksRender(newTrack);
@@ -77,6 +68,7 @@ namespace TransponderReceiverUser
                     }
                 }
             }
+            System.Console.Write("Number of Tracks: {0}\n", count.getTracks());
         }
     }
 }
