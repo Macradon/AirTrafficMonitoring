@@ -17,14 +17,18 @@ namespace ATM.Unit.Test
     {
         private Decrypting uut;
         private string transponder;
-        
+        private string formerPosition;
+        private string newPosition;
 
-       [SetUp]
+
+        [SetUp]
         public void setup()
         {
 
             uut = new Decrypting("");
             transponder = "Boe747;12345;54321;2222;20190321123456789";
+            formerPosition = "Boe747;10000;10000;2222;20190321123456789";
+            newPosition = "Boe747;40000;50000;2222;20190321123456789";
         }
         
         [Test]
@@ -104,5 +108,17 @@ namespace ATM.Unit.Test
         {
             Assert.That(uut.decryptTrack(transponder).Compass, Is.EqualTo(0));
         }
+
+        [Test]
+        public void newCalculatedVelocity()
+        {
+            Track formerTrack = new Track();
+            Track newTrack = new Track();
+            formerTrack = uut.decryptTrack(formerPosition);
+            newTrack = uut.decryptTrack(newPosition);
+            Assert.That(uut.decryptTrackVelocity(formerTrack, newTrack).Velocity, Is.EqualTo(50000)); //Pythagoras: 30000^2 + 40000^2 = 50000^2
+        }
+
+
     }
 }

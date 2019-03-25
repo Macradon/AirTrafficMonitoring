@@ -54,5 +54,22 @@ namespace I4SWTMandatoryAssignment2.Model
 
             return track;
         }
+
+        public Track decryptTrackVelocity(Track formerTrack, Track newTrack)
+        {
+            newTrack.Velocity = Math.Sqrt((Math.Pow((newTrack.Xcoor - formerTrack.Xcoor), 2)) + (Math.Pow((newTrack.Ycoor - formerTrack.Ycoor), 2)));
+            //newTrack.Velocity = Math.
+            return newTrack;
+        }
+
+        public Track decryptTrackCompass(Track formerTrack, Track newTrack)
+        {
+            double xDis = Math.Abs(formerTrack.Xcoor - newTrack.Xcoor);
+            double yDis = Math.Abs(formerTrack.Ycoor - newTrack.Ycoor);
+            double hypo = Math.Sqrt(Math.Pow(xDis, 2) + Math.Pow(yDis, 2) - (2 * xDis * yDis * Math.Cos(90)));
+            double angle = Math.Acos((-(Math.Pow(yDis, 2)) + Math.Pow(xDis, 2) + Math.Pow(hypo, 2)) / (2 * xDis * hypo)) * 360 / (2 * Math.PI);
+            newTrack.Compass = angle;
+            return newTrack;
+        }
     }  
 }

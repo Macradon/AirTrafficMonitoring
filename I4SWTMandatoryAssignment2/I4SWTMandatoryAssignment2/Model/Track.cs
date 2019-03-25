@@ -13,8 +13,8 @@ namespace I4SWTMandatoryAssignment2.Model
         private int _x;
         private int _y;
         private int _alt;
-        private int _velocity;
-        private int _compass;
+        private double _velocity;
+        private double _compass;
         private DateTime _timestamp;
 
         //Properties R/W
@@ -22,13 +22,16 @@ namespace I4SWTMandatoryAssignment2.Model
         public int Xcoor { get; set; }
         public int Ycoor { get; set; }
         public int Altitude { get; set; }
-        public int Velocity { get; set; }
-        public int Compass { get; set; }
+        public double Velocity { get; set; }
+        public double Compass { get; set; }
         public DateTime TimeStamp { get; set; }
 
         //Contstructor init
 
-        public Track() { }
+        public Track()
+        {
+
+        }
 
         public Track(string tag, int xcoor, int ycoor, int altitude, DateTime timestamp)
         {

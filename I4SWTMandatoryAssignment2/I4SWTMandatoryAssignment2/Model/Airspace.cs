@@ -12,29 +12,29 @@ namespace I4SWTMandatoryAssignment2.Model
         public int swCornerX { get; set; }
         public int swCornerY { get; set; }
         public int neCornerX { get; set; }
-        public int neCornery { get; set; }
+        public int neCornerY { get; set; }
         public int minAlt { get; set; }
         public int maxAlt { get; set; }
 
         public Airspace()
         {
 
-            swCornerX = 0;
-            swCornerY = 0;
+            swCornerX = 5000;
+            swCornerY = 5000;
 
-            neCornerX = 80000;
-            neCornery = 80000;
+            neCornerX = 85000;
+            neCornerY = 85000;
 
             minAlt = 500;
             maxAlt = 20000;
-
         }
 
-        //Undersøger om tracken er i 
-        public bool positionTrack(Track track)
+
+        //Undersøger om tracken er i Airspace
+        public bool checkAirspace(Track track)
         {
             if (track.Xcoor >= swCornerX && track.Xcoor <= neCornerX &&
-                track.Ycoor >= swCornerY && track.Ycoor <= neCornery &&
+                track.Ycoor >= swCornerY && track.Ycoor <= neCornerY &&
                 track.Altitude >= minAlt && track.Altitude <= maxAlt)
                 return true;
             else
