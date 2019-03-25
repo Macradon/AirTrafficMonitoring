@@ -51,10 +51,11 @@ namespace TransponderReceiverUser
                 formerX = newTrack.Xcoor;
                 formerY = newTrack.Ycoor;
 
-                newTrack = decrypt.decryptTrack(data.ToString());
-                //if (airspace.checkAirspace(newTrack) == true)
+                newTrack = decrypt.decryptTrack(data);
+                if (airspace.checkAirspace(newTrack) == true)
                 {
                     newTrack = decrypt.decryptTrackVelocity(formerTrack, newTrack);
+                    newTrack = decrypt.decryptTrackCompass(formerTrack, newTrack);
                     render.TracksRender(newTrack);
                 }
             }

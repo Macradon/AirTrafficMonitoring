@@ -14,7 +14,7 @@ namespace I4SWTMandatoryAssignment2.Model
         private int _y;
         private int _alt;
         private double _velocity;
-        private int _compass;
+        private double _compass;
         private DateTime _timestamp;
 
         //Properties R/W
@@ -23,7 +23,7 @@ namespace I4SWTMandatoryAssignment2.Model
         public int Ycoor { get; set; }
         public int Altitude { get; set; }
         public double Velocity { get; set; }
-        public int Compass { get; set; }
+        public double Compass { get; set; }
         public DateTime TimeStamp { get; set; }
 
         //Contstructor init

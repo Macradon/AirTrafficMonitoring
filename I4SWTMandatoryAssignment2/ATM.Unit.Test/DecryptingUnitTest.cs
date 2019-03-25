@@ -116,7 +116,9 @@ namespace ATM.Unit.Test
             Track newTrack = new Track();
             formerTrack = uut.decryptTrack(formerPosition);
             newTrack = uut.decryptTrack(newPosition);
-            Assert.That(uut.decryptTrackVelocity(formerTrack, newTrack).Velocity, Is.EqualTo(50000));
+            Assert.That(uut.decryptTrackVelocity(formerTrack, newTrack).Velocity, Is.EqualTo(50000)); //Pythagoras: 30000^2 + 40000^2 = 50000^2
         }
+
+
     }
 }
