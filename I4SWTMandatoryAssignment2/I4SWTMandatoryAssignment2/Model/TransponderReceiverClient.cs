@@ -26,12 +26,15 @@ namespace TransponderReceiverUser
             Decrypting decrypt = new Decrypting("");
             Print print = new Print();
             Rendering render = new Rendering(print);
+            Airspace airspace = new Airspace();
             
 
             // Just display data
             foreach (var data in e.TransponderData)
             {
-                count.addTrack();
+                track = decrypt.decryptTrack(data.ToString());
+                if (airspace.checkAirspace(track) == true)
+                    count.addTrack();
             }
 
             System.Console.Write("Number of Tracks: {0}\n", count.getTracks());
@@ -39,7 +42,8 @@ namespace TransponderReceiverUser
             foreach (var data in e.TransponderData)
             {
                 track = decrypt.decryptTrack(data.ToString());
-                render.TracksRender(track);
+                if (airspace.checkAirspace(track) == true)
+                    render.TracksRender(track);
             }
         }
     }
