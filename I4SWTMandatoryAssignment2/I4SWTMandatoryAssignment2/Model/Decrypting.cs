@@ -71,24 +71,26 @@ namespace I4SWTMandatoryAssignment2.Model
             double angle;
             if (newTrack.Xcoor == centerPos.Xcoor && newTrack.Ycoor == centerPos.Ycoor)     //Track is centered
                 angle = 0;
-            else if (newTrack.Xcoor > centerPos.Xcoor && newTrack.Ycoor == centerPos.Ycoor) //Track moves East
-                angle = 0;
             else if (newTrack.Xcoor == centerPos.Xcoor && newTrack.Ycoor > centerPos.Ycoor) //Track moves North
-                angle = 90;
+                angle = 0;
             else if (newTrack.Xcoor < centerPos.Xcoor && newTrack.Ycoor == centerPos.Ycoor) //Track moves West
-                angle = 180;
+                angle = 90;
             else if (newTrack.Xcoor == centerPos.Xcoor && newTrack.Ycoor < centerPos.Ycoor) //Track moves South
+                angle = 180;
+            else if (newTrack.Xcoor > centerPos.Xcoor && newTrack.Ycoor == centerPos.Ycoor) //Track moves East
                 angle = 270;
             else
             {
                 angle = Math.Acos((-(Math.Pow(yDis, 2)) + Math.Pow(xDis, 2) + Math.Pow(hypo, 2)) / (2 * xDis * hypo)) * 360 / (2 * Math.PI);
 
                 if (newTrack.Xcoor < centerPos.Xcoor && newTrack.Ycoor >= centerPos.Ycoor)
-                    angle = 180 - angle;
+                    angle = 90 - angle;
                 else if (newTrack.Xcoor < centerPos.Xcoor && newTrack.Ycoor < centerPos.Ycoor)
-                    angle += 180;
+                    angle += 90;
                 else if (newTrack.Xcoor >= centerPos.Xcoor && newTrack.Ycoor < centerPos.Ycoor)
-                    angle = 360 - angle;
+                    angle = 270 - angle;
+                else if (newTrack.Xcoor >= centerPos.Xcoor && newTrack.Ycoor >= centerPos.Ycoor)
+                    angle += 270;
             }
 
             newTrack.Compass = angle;
