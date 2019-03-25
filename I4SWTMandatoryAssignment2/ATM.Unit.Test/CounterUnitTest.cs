@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using I4SWTMandatoryAssignment2.Model;
 
+
+
 namespace ATM.Unit.Test
 {
     [TestFixture]
@@ -16,8 +18,10 @@ namespace ATM.Unit.Test
         private Track _track1;
         private Track _track2;
         private Counter uut;
-        
-        
+
+        //Preprocessor valus
+        private int nr1 = 1;
+        private int nr2 = 2;
 
 
         [SetUp]
@@ -56,7 +60,7 @@ namespace ATM.Unit.Test
         {
             
             uut.addTrack();
-            Assert.That(uut.getTracks(), Is.EqualTo(1));
+            Assert.That(uut.getTracks(), Is.EqualTo(nr1));
             
         }
 
@@ -66,33 +70,34 @@ namespace ATM.Unit.Test
 
             uut.addTrack();
             uut.addTrack();
-            Assert.That(uut.getTracks(), Is.EqualTo(2));
+            Assert.That(uut.getTracks(), Is.EqualTo(nr2));
         }
 
         [Test]
         public void counTracks_SubtrackTracksCountedTest1()
         {
-
-            uut.addTrack();
-            uut.addTrack();
+            for (int i = 0; i < 2; i++)
+            {
+                uut.addTrack();
+            }
+            
 
             uut.subtractTrack();
-            Assert.That(uut.getTracks(), Is.EqualTo(1));
+            Assert.That(uut.getTracks(), Is.EqualTo(nr1));
         }
 
 
         [Test]
         public void counTracks_SubtrackTracksCountedTest2()
         {
-            //Ikke pænt at kalde metoder 3 gange på denne måde.
-            //Vi prøvede med for/foreach, men den gad ikke at virke
 
-            uut.addTrack();
-            uut.addTrack();
-            uut.addTrack();
+            for (int i = 0; i < 3; i++)
+            {
+                uut.addTrack();
+            }
 
             uut.subtractTrack();
-            Assert.That(uut.getTracks(), Is.EqualTo(2));
+            Assert.That(uut.getTracks(), Is.EqualTo(nr2));
         }
 
         [Test]
@@ -101,7 +106,7 @@ namespace ATM.Unit.Test
             uut.subtractTrack();
             uut.addTrack();
 
-            Assert.That(uut.getTracks(), Is.EqualTo(1));
+            Assert.That(uut.getTracks(), Is.EqualTo(nr1));
         }
 
     }
