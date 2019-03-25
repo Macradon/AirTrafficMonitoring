@@ -65,18 +65,15 @@ namespace TransponderReceiverUser
                 formerY = newTrack.Ycoor;
 
                 newTrack = decrypt.decryptTrack(data);
-                //if (airspace.checkAirspace(newTrack) == true)
+                if (airspace.checkAirspace(newTrack) == true)
                 {
                     newTrack = decrypt.decryptTrackVelocity(formerTrack, newTrack);
                     newTrack = decrypt.decryptTrackCompass(centerPos, newTrack);
                     render.TracksRender(newTrack);
                     for (int i = 1; i < count.getTracks(); i++)
                     {
-                        if (Math.Sqrt((Math.Pow((index[count.getTracks() - 1].Xcoor - index[i - 1].Xcoor), 2) + (Math.Pow((index[count.getTracks() - 1].Xcoor - index[i - 1].Xcoor), 2)))) < 5000 &&
-                           (Math.Abs(index[count.getTracks() - 1].Xcoor - index[i - 1].Xcoor) < 300))
-                        {
-                            print.print("Conflict between " + index[count.getTracks() - 1].Tag + " & " + index[i - 1].Tag);
-                        }
+                        if (newTrack.checkConflict(index[count.getTracks() - 1], index[i - 1]) == true)
+                            print.print("   Conflict between " + index[count.getTracks() - 1].Tag + " & " + index[i - 1].Tag);
                     }
                 }
             }
