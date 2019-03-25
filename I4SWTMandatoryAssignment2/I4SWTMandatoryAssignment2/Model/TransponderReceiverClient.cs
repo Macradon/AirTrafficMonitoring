@@ -9,9 +9,8 @@ namespace TransponderReceiverUser
     {
         private ITransponderReceiver receiver;
 
-        private int formerX = 0;
-        private int formerY = 0;
-        
+        static int[] formerX = new int[30];
+        static int[] formerY = new int[30];
 
         // Using constructor injection for dependency/ies
         public TransponderReceiverClient(ITransponderReceiver receiver)
@@ -41,9 +40,10 @@ namespace TransponderReceiverUser
             
 
             // Just display data
-            Track[] index = new Track[50];
+            Track[] index = new Track[30];
             
-            for (int i = 0; i < 50; i++)
+
+            for (int i = 0; i < 30; i++)
             {
                 index[i] = decrypt.decryptTrack("000000;0000;0000;0000;20190321000000000");
             }
@@ -51,16 +51,15 @@ namespace TransponderReceiverUser
 
             foreach (var data in e.TransponderData)
             {
-                formerTrack.Xcoor = formerX;
-                formerTrack.Ycoor = formerY;
-
-                formerX = newTrack.Xcoor;
-                formerY = newTrack.Ycoor;
-
                 newTrack = decrypt.decryptTrack(data);
-                if (airspace.checkAirspace(newTrack) == true)
+                //if (airspace.checkAirspace(newTrack) == true)
                 {
-                    
+                    formerTrack.Xcoor = formerX[count.getTracks()];
+                    formerTrack.Ycoor = formerY[count.getTracks()];
+
+                    formerX[count.getTracks()] = newTrack.Xcoor;
+                    formerY[count.getTracks()] = newTrack.Ycoor;
+
                     newTrack = decrypt.decryptTrackVelocity(formerTrack, newTrack);
                     newTrack = decrypt.decryptTrackCompass(centerPos, newTrack);
                     render.TracksRender(newTrack);
