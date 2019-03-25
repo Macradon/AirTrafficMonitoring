@@ -11,6 +11,8 @@ namespace TransponderReceiverUser
 
         static int[] formerX = new int[30];
         static int[] formerY = new int[30];
+        static Track[] condition = new Track[30];
+        static bool[] condiSet = new bool[50];
 
         // Using constructor injection for dependency/ies
         public TransponderReceiverClient(ITransponderReceiver receiver)
@@ -52,7 +54,7 @@ namespace TransponderReceiverUser
             foreach (var data in e.TransponderData)
             {
                 newTrack = decrypt.decryptTrack(data);
-                //if (airspace.checkAirspace(newTrack) == true)
+                if (airspace.checkAirspace(newTrack) == true)
                 {
                     formerTrack.Xcoor = formerX[count.getTracks()];
                     formerTrack.Ycoor = formerY[count.getTracks()];
@@ -68,10 +70,21 @@ namespace TransponderReceiverUser
                     {
                         if (newTrack.checkConflict(index[count.getTracks() - 1], index[i]) == true)
                         {
+                            int set = 0;
+                            while (condiSet[set] == true && set < count.getTracks())
+                                set++;
+
+                            if (condiSet[set] == false)
+                            {
+                                condition[set] = index[i];
+                                condiSet[set] = true;
+                            }
+
+
                             print.print("   Conflict between " + index[count.getTracks()].Tag + " & " + index[i].Tag +
-                                "   " + index[i].TimeStamp.Day + "/" + index[i].TimeStamp.Month + "-" + index[i].TimeStamp.Year +
-                                " " + index[i].TimeStamp.Hour + ":" + index[i].TimeStamp.Minute + ":" + index[i].TimeStamp.Second +
-                                "." + index[i].TimeStamp.Millisecond);
+                                "   " + condition[set].TimeStamp.Day + "/" + condition[set].TimeStamp.Month + "-" + condition[set].TimeStamp.Year +
+                                " " + condition[set].TimeStamp.Hour + ":" + condition[set].TimeStamp.Minute + ":" + condition[set].TimeStamp.Second +
+                                "." + condition[set].TimeStamp.Millisecond);
                         }
                     }
                     count.addTrack();
