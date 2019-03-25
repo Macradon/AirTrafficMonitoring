@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AirspaceUnitTest.cs" />
+    <Compile Include="CounterUnitTest.cs" />
     <Compile Include="DecryptingUnitTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
