@@ -11,8 +11,7 @@ namespace TransponderReceiverUser
 
         private int formerX = 0;
         private int formerY = 0;
-        private bool[] condition = new bool[20] { false, false, false, false, false, false, false, false, false, false,
-                                                  false, false, false, false, false, false, false, false, false, false };
+        
 
         // Using constructor injection for dependency/ies
         public TransponderReceiverClient(ITransponderReceiver receiver)
@@ -54,8 +53,6 @@ namespace TransponderReceiverUser
 
             foreach (var data in e.TransponderData)
             {
-                
-
                 formerTrack.Xcoor = formerX;
                 formerTrack.Ycoor = formerY;
 
@@ -72,21 +69,12 @@ namespace TransponderReceiverUser
                     index[count.getTracks()] = newTrack;
                     for (int i = 0; i < count.getTracks(); i++)
                     {
-                        if (newTrack.checkConflict(index[count.getTracks() - 1], index[i + 1]) == true)
+                        if (newTrack.checkConflict(index[count.getTracks() - 1], index[i]) == false)
                         {
-                            if (condition[i] == false)
-                            {
-                                conditions[i].TimeStamp = index[i].TimeStamp;
-                                condition[i] = true;
-                            }
-                            print.print("   Conflict between " + index[count.getTracks() - 0].Tag + " & " + index[i].Tag +
-                                "   " + conditions[i].TimeStamp.Day + "/" + conditions[i].TimeStamp.Month + "-" + conditions[i].TimeStamp.Year +
-                                " " + conditions[i].TimeStamp.Hour + ":" + conditions[i].TimeStamp.Minute + ":" + conditions[i].TimeStamp.Second +
-                                "." + conditions[i].TimeStamp.Millisecond);
-                        }
-                        else
-                        {
-                            condition[i] = false;
+                            print.print("   Conflict between " + index[count.getTracks()].Tag + " & " + index[i].Tag +
+                                "   " + index[i].TimeStamp.Day + "/" + index[i].TimeStamp.Month + "-" + index[i].TimeStamp.Year +
+                                " " + index[i].TimeStamp.Hour + ":" + index[i].TimeStamp.Minute + ":" + index[i].TimeStamp.Second +
+                                "." + index[i].TimeStamp.Millisecond);
                         }
                     }
                     count.addTrack();
