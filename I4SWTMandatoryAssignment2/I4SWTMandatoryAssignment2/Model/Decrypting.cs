@@ -55,7 +55,7 @@ namespace I4SWTMandatoryAssignment2.Model
             return track;
         }
 
-        public Track decryptTrackVelocity(Track newTrack, Track formerTrack)
+        public Track decryptTrackVelocity(Track formerTrack, Track newTrack)
         {
             newTrack.Velocity = Math.Sqrt((Math.Pow((newTrack.Xcoor - formerTrack.Xcoor), 2)) + (Math.Pow((newTrack.Ycoor - formerTrack.Ycoor), 2)));
             return newTrack;

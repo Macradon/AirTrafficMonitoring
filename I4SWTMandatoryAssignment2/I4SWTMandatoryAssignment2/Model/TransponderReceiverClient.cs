@@ -54,7 +54,7 @@ namespace TransponderReceiverUser
                 newTrack = decrypt.decryptTrack(data.ToString());
                 //if (airspace.checkAirspace(newTrack) == true)
                 {
-                    newTrack = decrypt.decryptTrackVelocity(newTrack, formerTrack);
+                    newTrack = decrypt.decryptTrackVelocity(formerTrack, newTrack);
                     render.TracksRender(newTrack);
                 }
             }
