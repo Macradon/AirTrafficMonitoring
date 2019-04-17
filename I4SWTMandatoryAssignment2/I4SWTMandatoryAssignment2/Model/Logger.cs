@@ -9,7 +9,7 @@ namespace I4SWTMandatoryAssignment2.Model
 {
    public class Logger
     {
-        private string[] lines;
+        private string[] lines = new string[30];
         private int lineNmb = 0;
         public Logger()
         {
@@ -18,15 +18,11 @@ namespace I4SWTMandatoryAssignment2.Model
 
          public void printToLog(string tag1, string tag2, DateTime tid)
         {
-
-            using (System.IO.StreamWriter file =
-            new System.IO.StreamWriter(@"C:\Users\Admin\Desktop\Logs.txt"))
-            {
-                lines[lineNmb] = "Conflict between " + tag1 + " & " + tag2 + " at" +
-                    tid.Hour + ":" + tid.Minute + ":" + tid.Second + "." + tid.Millisecond + " " + tid.Day + "/" + tid.Month + "-" + tid.Year;
-                file.WriteLine(lines);
-                lineNmb++;
-            }
+            lines[lineNmb] = "Conflict between " + tag1 + " & " + tag2 + " at" +
+            tid.Hour + ":" + tid.Minute + ":" + tid.Second + "." + tid.Millisecond + " " + tid.Day + "/" + tid.Month + "-" + tid.Year;
+            System.IO.File.WriteAllLines(@"C:\Users\Admin\Desktop\Logs.txt", lines);
+            lineNmb++;
+ 
         }
     }
 
