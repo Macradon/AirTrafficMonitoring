@@ -53,9 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AirspaceUnitTest.cs" />
-    <Compile Include="CounterUnitTest.cs" />
-    <Compile Include="DecryptingUnitTest.cs" />
+    <Compile Include="Unit Test\AirspaceUnitTest.cs" />
+    <Compile Include="Unit Test\CounterUnitTest.cs" />
+    <Compile Include="Unit Test\DecryptingUnitTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrackUnitTest.cs" />
