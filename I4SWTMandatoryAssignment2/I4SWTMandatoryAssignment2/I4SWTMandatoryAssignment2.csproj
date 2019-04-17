@@ -55,6 +55,7 @@
     <Compile Include="Model\Airspace.cs" />
     <Compile Include="Model\Counter.cs" />
     <Compile Include="Model\Decrypting.cs" />
+    <Compile Include="Model\Logger.cs" />
     <Compile Include="Model\Print.cs" />
     <Compile Include="Model\Rendering.cs" />
     <Compile Include="Model\Track.cs" />
