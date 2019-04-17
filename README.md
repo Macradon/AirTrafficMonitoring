@@ -3,4 +3,4 @@ This repository is to be used for the second mandatory hand in in the Software T
 
 Link to group's report: https://docs.google.com/document/d/1LUhOD9--2zASYwstnajXgmNreMX1-h3gIisGqyOSERo/edit?usp=sharing
 
-![My image](https://www.aviationcv.com/aviation-blog/wp-content/uploads/2016/09/nova_deadliest_crash.jpg)
+![My image](https://i.cbc.ca/1.5054892.1552501735!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/buttonville-crash.jpg)
