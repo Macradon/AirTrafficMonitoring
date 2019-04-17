@@ -49,6 +49,7 @@
     <Compile Include="Interfaces\iAirspace.cs" />
     <Compile Include="Interfaces\iCounter.cs" />
     <Compile Include="Interfaces\iDecrypting.cs" />
+    <Compile Include="Interfaces\iLogger.cs" />
     <Compile Include="Interfaces\iPrint.cs" />
     <Compile Include="Interfaces\iRendering.cs" />
     <Compile Include="Interfaces\iTrack.cs" />
