@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    class Counter : iCounter
+    public class Counter : iCounter
     {
         private int _trackCounter;
 
