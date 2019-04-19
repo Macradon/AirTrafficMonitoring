@@ -8,7 +8,17 @@ namespace AirTrafficMonitor
 {
     class Airspace : iAirspace
     {
-        iTrackCalculator TrackCalc = new iTrackCalculator();
-        iCounter counter = new iCounter();
+        iTrackCalculator TrackCalc = new TrackCalculator();
+        iCounter counter = new Counter();
+
+        public Airspace()
+        {
+
+        }
+
+        public bool checkPosition(Track track)
+        {
+
+        }
     }
 }
