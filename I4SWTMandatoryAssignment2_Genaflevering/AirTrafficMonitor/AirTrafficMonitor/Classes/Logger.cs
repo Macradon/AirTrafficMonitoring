@@ -12,8 +12,8 @@ namespace AirTrafficMonitor
     {
         iConflictDetection ConflictDetect = new ConflictDetection();
 
-        private string[] lines;
-        private int lineNmb;
+        private string[] lines { get; set; }
+        private int lineNmb { get; set; }
 
         public void printToLog(string tag1, string tag2, DateTime tid)
         {
