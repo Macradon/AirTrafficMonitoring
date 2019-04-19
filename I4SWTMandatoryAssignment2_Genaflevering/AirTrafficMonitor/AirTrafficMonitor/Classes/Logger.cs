@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    class Rendering
+    class Logger
     {
+        iConflictDetection ConflictDetect = new iConflictDetection();
     }
 }
