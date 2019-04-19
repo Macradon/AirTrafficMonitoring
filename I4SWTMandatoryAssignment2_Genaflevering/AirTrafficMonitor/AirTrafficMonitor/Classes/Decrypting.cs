@@ -7,13 +7,20 @@ using AirTrafficMonitor.Classes;
 
 namespace AirTrafficMonitor
 {
-    class Decrypting: iDecrypting
+    public class Decrypting: iDecrypting
     {
-        private iTransponderReciever TransponderRecive = new iTransponderReciever();
+        iTransponderReciever TransponderRecive = new iTransponderReciever();
+
+        Track iDecrypting.decryptTrack(string);
+
+        public Decrypting()
+        {
+
+        }
 
         public Decrypting(string data)
         {
-
+            
         }
 
         public TransponderReciever Getx(string currentTrack)
