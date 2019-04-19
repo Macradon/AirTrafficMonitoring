@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    interfce iAirspace
+    interface iAirspace
     {
         public bool checkPosition(Track);
     }
