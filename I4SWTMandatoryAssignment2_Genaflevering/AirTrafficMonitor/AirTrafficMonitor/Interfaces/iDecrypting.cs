@@ -9,6 +9,5 @@ namespace AirTrafficMonitor
     interface iDecrypting
     {
 
-        Track decryptTrack(string);
     }
 }
