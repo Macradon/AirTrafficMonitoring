@@ -18,5 +18,14 @@ namespace AirTrafficMonitor
         private DateTime _timestamp;
 
         iDecrypting Decrypt = new Decrypting();
+
+        public string Tag { get; set; }
+        public int Xcoor { get; set; }
+        public int Ycoor { get; set; }
+        public int Altitude { get; set; }
+        public double Velocity { get; set; }
+        public double Compass { get; set; }
+        public DateTime TimeStamp { get; set; }
+
     }
 }
