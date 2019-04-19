@@ -8,5 +8,6 @@ namespace AirTrafficMonitor
 {
     class iConflictDetection
     {
+        public bool checkConflict(Track, Track);
     }
 }

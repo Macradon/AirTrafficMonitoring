@@ -8,5 +8,6 @@ namespace AirTrafficMonitor
 {
     class iAirspace
     {
+        public bool checkPosition(Track);
     }
 }
