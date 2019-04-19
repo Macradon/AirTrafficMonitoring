@@ -8,6 +8,21 @@ namespace AirTrafficMonitor
 {
     class TrackCalculator: iTrackCalculator
     {
-        private iTrack trackCalculator = new iTrack();
+        private iTrack trackCalculator = new Track();
+
+        public TrackCalculator()
+        {
+
+        }
+
+        public void calculateVelocity(Track track1, Track track2)
+        {
+
+        }
+
+        public void calculateCompass(Track track1, Track track2)
+        {
+
+        }
     }
 }

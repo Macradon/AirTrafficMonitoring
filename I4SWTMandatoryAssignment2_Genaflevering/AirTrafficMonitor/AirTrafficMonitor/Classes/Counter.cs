@@ -8,5 +8,31 @@ namespace AirTrafficMonitor
 {
     class Counter : iCounter
     {
+        private int _trackCounter;
+
+        public int TrackCounter { get; set; }
+
+        public Counter()
+        {
+            _trackCounter = 0;
+        }
+
+        public void addTrack()
+        {
+            _trackCounter++;
+        }
+
+        public void subtractTrack()
+        {
+            if (_trackCounter > 0)
+            {
+                _trackCounter--;
+            }
+        }
+
+        public int getTracks()
+        {
+            return _trackCounter;
+        }
     }
 }
