@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    public class iCounter
+    interface iCounter
     {
 
         public void addTrack();

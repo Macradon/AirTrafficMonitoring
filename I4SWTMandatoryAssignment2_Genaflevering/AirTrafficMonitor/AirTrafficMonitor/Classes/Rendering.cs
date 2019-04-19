@@ -10,5 +10,14 @@ namespace AirTrafficMonitor
     {
         iConflictDetection ConflictDetect = new iConflictDetection();
 
+        public void printTrack(Track track)
+        {
+
+        }
+
+        public void printConflict(Track track)
+        {
+
+        }
     }
 }

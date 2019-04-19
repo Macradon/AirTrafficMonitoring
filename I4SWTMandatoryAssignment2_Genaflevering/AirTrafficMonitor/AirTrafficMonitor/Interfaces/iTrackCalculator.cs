@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    public class iTrackCalculator
+    interface iTrackCalculator
     {
         public void calculateVelocity(Track, Track);
         public void calculateCompass(Track, Track);
