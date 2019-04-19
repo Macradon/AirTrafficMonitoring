@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    public class iTransponderReciever
+    interface iTransponderReciever
     {
     }
 }

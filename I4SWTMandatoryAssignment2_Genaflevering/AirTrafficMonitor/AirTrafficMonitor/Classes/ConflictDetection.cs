@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    class ConflictDetection : iConflictDetection
+    public class ConflictDetection : iConflictDetection
     {
-        new iAirspace Airspace = new iAirspace();
+        iAirspace Airspace = new iAirspace();
+
+        public bool checkConflict(Track tag1, Track tag2)
+        {
+
+        }
     }
 }
