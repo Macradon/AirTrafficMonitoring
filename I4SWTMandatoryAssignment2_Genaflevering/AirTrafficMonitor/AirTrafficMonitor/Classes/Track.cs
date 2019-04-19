@@ -16,5 +16,7 @@ namespace AirTrafficMonitor
         private double _velocity;
         private double _compass;
         private DateTime _timestamp;
+
+        iDecrypting Decrypt = new iDecrypting();
     }
 }

@@ -8,5 +8,7 @@ namespace AirTrafficMonitor
 {
     class Rendering
     {
+        iConflictDetection ConflictDetect = new iConflictDetection();
+
     }
 }

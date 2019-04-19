@@ -8,5 +8,6 @@ namespace AirTrafficMonitor
 {
     class ConflictDetection
     {
+        new iAirspace Airspace = new iAirspace();
     }
 }

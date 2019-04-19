@@ -8,5 +8,6 @@ namespace AirTrafficMonitor
 {
     class TrackCalculator
     {
+        private iTrack trackCalculator = new iTrack();
     }
 }

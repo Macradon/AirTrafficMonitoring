@@ -8,5 +8,6 @@ namespace AirTrafficMonitor
 {
     class Logger
     {
+        iConflictDetection ConflictDetect = new iConflictDetection();
     }
 }

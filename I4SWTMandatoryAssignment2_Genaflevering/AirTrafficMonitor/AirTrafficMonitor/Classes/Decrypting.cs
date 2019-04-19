@@ -8,5 +8,6 @@ namespace AirTrafficMonitor
 {
     class Decrypting
     {
+        private iTransponderReciever TransponderRecive = new iTransponderReciever();
     }
 }
