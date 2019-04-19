@@ -8,7 +8,7 @@ namespace AirTrafficMonitor
 {
     class Rendering
     {
-        iConflictDetection ConflictDetect = new iConflictDetection();
+        iConflictDetection ConflictDetect = new ConflictDetection();
 
         public void printTrack(Track track)
         {

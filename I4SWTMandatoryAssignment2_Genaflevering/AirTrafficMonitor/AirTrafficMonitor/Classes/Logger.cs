@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using AirTrafficMonitor.Classes;
 
 namespace AirTrafficMonitor
 {
     class Logger
     {
-        iConflictDetection ConflictDetect = new iConflictDetection();
+        iConflictDetection ConflictDetect = new ConflictDetection();
 
         private string[] lines;
         private int lineNmb;
