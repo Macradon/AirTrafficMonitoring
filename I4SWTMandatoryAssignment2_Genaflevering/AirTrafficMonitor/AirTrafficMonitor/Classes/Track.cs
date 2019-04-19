@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    class Track: iTrack
+    public class Track: iTrack
     {
         //attributes
         private string _tag;
@@ -17,27 +17,6 @@ namespace AirTrafficMonitor
         private double _compass;
         private DateTime _timestamp;
 
-        iDecrypting Decrypt = new iDecrypting();
-
-        //Get/Set
-        public string Tag { get; set; }
-        public int Xcoor { get; set; }
-        public int Ycoor { get; set; }
-        public int Altitude { get; set; }
-        public double Velocity { get; set; }
-        public double Compass { get; set; }
-        public DateTime TimeStamp { get; set; }
-
-        //Functions 
-        public Track(string tag, int xcoor, int ycoor, int altitude, DateTime timestamp)
-        {
-            _tag = tag;
-            _x = xcoor;
-            _y = ycoor;
-            _alt = altitude;
-            _velocity = Velocity;
-            _compass = Compass;
-            _timestamp = timestamp;
-        }
+        iDecrypting Decrypt = new Decrypting();
     }
 }

@@ -8,7 +8,7 @@ using AirTrafficMonitor.Classes;
 
 namespace AirTrafficMonitor
 {
-    class Logger
+    public class Logger
     {
         iConflictDetection ConflictDetect = new ConflictDetection();
 
