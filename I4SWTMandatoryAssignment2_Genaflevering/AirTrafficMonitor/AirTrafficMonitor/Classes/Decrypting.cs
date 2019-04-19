@@ -9,5 +9,15 @@ namespace AirTrafficMonitor
     class Decrypting: iDecrypting
     {
         private iTransponderReciever TransponderRecive = new iTransponderReciever();
+
+        public Decrypting(string data)
+        {
+
+        }
+
+        public TransponderReciever Getx(string currentTrack)
+        {
+            var track = new iTrack();
+        }
     }
 }
