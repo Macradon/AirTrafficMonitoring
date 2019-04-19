@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    class Track: iTrack
+    public class Track: iTrack
     {
         //attributes
         private string _tag;
@@ -17,6 +17,6 @@ namespace AirTrafficMonitor
         private double _compass;
         private DateTime _timestamp;
 
-        iDecrypting Decrypt = new iDecrypting();
+        iDecrypting Decrypt = new Decrypting();
     }
 }
