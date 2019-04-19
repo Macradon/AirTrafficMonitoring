@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    class ConflictDetection
+    class ConflictDetection : iConflictDetection
     {
         new iAirspace Airspace = new iAirspace();
     }

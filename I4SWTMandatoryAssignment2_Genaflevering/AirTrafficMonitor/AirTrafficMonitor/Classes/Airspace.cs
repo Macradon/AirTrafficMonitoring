@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    class Airspace
+    class Airspace : iAirspace
     {
         iTrackCalculator TrackCalc = new iTrackCalculator();
         iCounter counter = new iCounter();

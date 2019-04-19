@@ -12,6 +12,6 @@ namespace AirTrafficMonitor
 
         public void addTrack();
         public void subtractTrack();
-        public int get Tracks();
+        public int getTracks();
     }
 }

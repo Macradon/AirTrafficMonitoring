@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    class Decrypting
+    class Decrypting: iDecrypting
     {
         private iTransponderReciever TransponderRecive = new iTransponderReciever();
     }

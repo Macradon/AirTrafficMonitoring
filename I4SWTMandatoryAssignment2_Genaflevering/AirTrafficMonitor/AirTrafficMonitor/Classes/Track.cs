@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    class Track
+    class Track: iTrack
     {
         //attributes
         private string _tag;
