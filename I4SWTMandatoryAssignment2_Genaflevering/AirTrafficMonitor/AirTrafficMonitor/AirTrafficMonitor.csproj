@@ -43,8 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Airspace.cs" />
+    <Compile Include="ConflictDetection.cs" />
+    <Compile Include="Counter.cs" />
+    <Compile Include="Decrypting.cs" />
+    <Compile Include="iAirspace.cs" />
+    <Compile Include="iConflictDetection.cs" />
+    <Compile Include="iCounter.cs" />
+    <Compile Include="iDecrypting.cs" />
+    <Compile Include="iTrack.cs" />
+    <Compile Include="iTrackCalculator.cs" />
+    <Compile Include="iTransponderReciever.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Rendering.cs" />
+    <Compile Include="Track.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrackCalculator.cs" />
+    <Compile Include="TransponderReciever.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
