@@ -46,8 +46,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decrypting.cs" />
+    <Compile Include="iDecrypting.cs" />
+    <Compile Include="ITransponderReciever.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Track.cs" />
+    <Compile Include="TransponderReciever.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
