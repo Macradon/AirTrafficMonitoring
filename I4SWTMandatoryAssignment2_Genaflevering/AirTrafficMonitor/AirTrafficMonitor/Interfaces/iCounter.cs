@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    class iCounter
+    public class iCounter
     {
-        private int _trackCounter;
 
         public void addTrack();
         public void subtractTrack();

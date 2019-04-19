@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    class iConflictDetection
+    public class iConflictDetection
     {
         public bool checkConflict(Track, Track);
     }
