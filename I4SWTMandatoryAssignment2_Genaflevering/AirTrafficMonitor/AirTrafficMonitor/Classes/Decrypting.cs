@@ -18,7 +18,7 @@ namespace AirTrafficMonitor
         private double _compass;
         private DateTime _timestamp;
 
-        private iTransponderReciever TransponderReciever = new TransponderReciever();
+        private iTransponderReciever TransponderReciever = new TransponderReceiver();
 
         public string Tag { get; set; }
         public int Xcoor { get; set; }
