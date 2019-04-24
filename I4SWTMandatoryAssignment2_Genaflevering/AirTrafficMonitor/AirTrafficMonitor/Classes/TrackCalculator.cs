@@ -15,45 +15,45 @@ namespace AirTrafficMonitor
             
         }
 
-        public double calculateVelocity(int formerX, int formerY, int newX, int newY)
+        public void calculateVelocity(int formerX, int formerY, Track track)
         {
-            double Velocity = Math.Sqrt((Math.Pow((newX - formerX), 2)) + (Math.Pow((newY - formerY), 2)));
-            return Math.Round(Velocity, 2);
+            double Velocity = Math.Sqrt((Math.Pow((track.Xcoor - formerX), 2)) + (Math.Pow((track.Ycoor - formerY), 2)));
+            track.Velocity = Math.Round(Velocity, 2);
         }
 
-        public double calculateCompass(int trackX, int trackY)
+        public void calculateCompass(Track track)
         {
-            double xDis = Math.Abs((airspace.neCornerX - airspace.swCornerX) - trackX);
-            double yDis = Math.Abs((airspace.neCornerY - airspace.swCornerY) - trackY);
+            double xDis = Math.Abs((airspace.neCornerX - airspace.swCornerX) - track.Xcoor);
+            double yDis = Math.Abs((airspace.neCornerY - airspace.swCornerY) - track.Ycoor);
             double hypo = Math.Sqrt(Math.Pow(xDis, 2) + Math.Pow(yDis, 2));
 
             double angle;
-            if (trackX == (airspace.neCornerX - airspace.swCornerX) && trackY == (airspace.neCornerY - airspace.swCornerY))     //Track is centered
+            if (track.Xcoor == (airspace.neCornerX - airspace.swCornerX) && track.Ycoor == (airspace.neCornerY - airspace.swCornerY))     //Track is centered
                 angle = 0;
-            else if (trackX == (airspace.neCornerX - airspace.swCornerX) && trackY > (airspace.neCornerY - airspace.swCornerY)) //Track moves North
+            else if (track.Xcoor == (airspace.neCornerX - airspace.swCornerX) && track.Ycoor > (airspace.neCornerY - airspace.swCornerY)) //Track moves North
                 angle = 0;
-            else if (trackX < (airspace.neCornerX - airspace.swCornerX) && trackY == (airspace.neCornerY - airspace.swCornerY)) //Track moves West
+            else if (track.Xcoor < (airspace.neCornerX - airspace.swCornerX) && track.Ycoor == (airspace.neCornerY - airspace.swCornerY)) //Track moves West
                 angle = 90;
-            else if (trackX == (airspace.neCornerX - airspace.swCornerX) && trackY < (airspace.neCornerY - airspace.swCornerY)) //Track moves South
+            else if (track.Xcoor == (airspace.neCornerX - airspace.swCornerX) && track.Ycoor < (airspace.neCornerY - airspace.swCornerY)) //Track moves South
                 angle = 180;
-            else if (trackX > (airspace.neCornerX - airspace.swCornerX) && trackY == (airspace.neCornerY - airspace.swCornerY)) //Track moves East
+            else if (track.Xcoor > (airspace.neCornerX - airspace.swCornerX) && track.Ycoor == (airspace.neCornerY - airspace.swCornerY)) //Track moves East
                 angle = 270;
             else
             {
                 angle = Math.Acos((-(Math.Pow(yDis, 2)) + Math.Pow(xDis, 2) + Math.Pow(hypo, 2)) / (2 * xDis * hypo)) * 360 / (2 * Math.PI);
 
-                if (trackX < (airspace.neCornerX - airspace.swCornerX) && trackY >= (airspace.neCornerY - airspace.swCornerY))
+                if (track.Xcoor < (airspace.neCornerX - airspace.swCornerX) && track.Ycoor >= (airspace.neCornerY - airspace.swCornerY))
                     angle = 90 - angle;
-                else if (trackX < (airspace.neCornerX - airspace.swCornerX) && trackY < (airspace.neCornerY - airspace.swCornerY))
+                else if (track.Xcoor < (airspace.neCornerX - airspace.swCornerX) && track.Ycoor < (airspace.neCornerY - airspace.swCornerY))
                     angle += 90;
-                else if (trackX >= (airspace.neCornerX - airspace.swCornerX) && trackY < (airspace.neCornerY - airspace.swCornerY))
+                else if (track.Xcoor >= (airspace.neCornerX - airspace.swCornerX) && track.Ycoor < (airspace.neCornerY - airspace.swCornerY))
                     angle = 270 - angle;
-                else if (trackX >= (airspace.neCornerX - airspace.swCornerX) && trackY >= (airspace.neCornerY - airspace.swCornerY))
+                else if (track.Xcoor >= (airspace.neCornerX - airspace.swCornerX) && track.Ycoor >= (airspace.neCornerY - airspace.swCornerY))
                     angle += 270;
             }
 
             double Compass = angle;
-            return Math.Round(Compass, 2);
+            track.Compass = Math.Round(Compass, 2);
         }
     }
 }

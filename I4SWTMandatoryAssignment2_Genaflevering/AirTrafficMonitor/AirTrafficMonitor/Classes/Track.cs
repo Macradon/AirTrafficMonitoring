@@ -10,6 +10,7 @@ namespace AirTrafficMonitor
     public class Track: iTrack
     {
         TrackCalculator trackCalculator = new TrackCalculator();
+        Airspace airspace = new Airspace();
         //attributes
         private string _tag;
         private int _x;
@@ -78,8 +79,10 @@ namespace AirTrafficMonitor
             _alt = altitude;
             _timestamp = timestamp;
 
-            _velocity = trackCalculator.calculateVelocity(formerX, formerY, _x, _y);
-            _compass = trackCalculator.calculateCompass(_x, _y);
+            trackCalculator.calculateVelocity(formerX, formerY, this);
+            trackCalculator.calculateCompass(this);
+
+            airspace.checkPosition(this);
         }
     }
 }
