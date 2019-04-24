@@ -13,8 +13,8 @@ namespace AirTrafficMonitor
         Airspace airspace = new Airspace();
         //attributes
         private string _tag;
-        private int _x;
-        private int _y;
+        private static int _x;
+        private static int _y;
         private int _alt;
         private double _velocity;
         private double _compass;
