@@ -17,12 +17,11 @@ namespace AirTrafficMonitor
            Console.WriteLine("Tag: " + track.Tag + ", X: " + track.Xcoor + ", Y: " + track.Ycoor + ", Altitude: " + track.Altitude + ", Velocity: " + track.Velocity + ", Course: " + track.Compass);
         }
 
-        public void printConflict(Track track1, Track track2)
+        public void printConflict(string tag1, string tag2, DateTime time)
         {
-            Console.WriteLine("Conflict between " + track1.Tag + " & " + track2.Tag +
-                        "   " + condition[set].TimeStamp.Day + "/" + condition[set].TimeStamp.Month + "-" + condition[set].TimeStamp.Year +
-                        " " + condition[set].TimeStamp.Hour + ":" + condition[set].TimeStamp.Minute + ":" + condition[set].TimeStamp.Second +
-                        "." + condition[set].TimeStamp.Millisecond);
+            Console.WriteLine("Conflict between " + tag1 + " & " + tag2 + "   " + 
+                              time.Day + "/" + time.Month + "-" + time.Year + " " + 
+                              time.Hour + ":" + time.Minute + ":" + time.Second + "." + time.Millisecond);
         }
     }
 }
