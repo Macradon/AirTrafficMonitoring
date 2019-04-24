@@ -76,9 +76,10 @@ namespace AirTrafficMonitor
             _x = xcoor;
             _y = ycoor;
             _alt = altitude;
-            _velocity = Velocity;
-            _compass = Compass;
             _timestamp = timestamp;
+
+            _velocity = trackCalculator.calculateVelocity(formerX, formerY, _x, _y);
+            _compass = trackCalculator.calculateCompass(_x, _y);
         }
     }
 }
