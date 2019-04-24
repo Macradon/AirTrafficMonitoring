@@ -9,7 +9,7 @@ namespace AirTrafficMonitor
 {
     public class Airspace : iAirspace
     {
-        Counter counter = new Counter();
+        static Counter counter = new Counter();
         Rendering rendering = new Rendering();
         ConflictDetection conflict = new ConflictDetection();
 
@@ -43,16 +43,16 @@ namespace AirTrafficMonitor
             {
                 arr[counter.TrackCounter] = track;
                 rendering.printTrack(arr[counter.TrackCounter]);
-                counter.addTrack();
+                
 
-                if (counter.TrackCounter >= 2)
+                if (counter.TrackCounter >= 0)
                 {
                     for (int i = 0; i < counter.TrackCounter; i++)
                     {
                         conflict.checkConflict(arr[counter.TrackCounter], arr[i]);
                     }
                 }
-                
+                counter.addTrack();
             }
             else
             {
