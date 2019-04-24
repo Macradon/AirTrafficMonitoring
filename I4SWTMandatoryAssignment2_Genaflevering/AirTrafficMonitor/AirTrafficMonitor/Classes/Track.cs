@@ -78,5 +78,8 @@ namespace AirTrafficMonitor
             _compass = Compass;
             _timestamp = timestamp;
         }
+
+
+
     }
 }

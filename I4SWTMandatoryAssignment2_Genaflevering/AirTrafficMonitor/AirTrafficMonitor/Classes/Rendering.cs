@@ -13,12 +13,16 @@ namespace AirTrafficMonitor
 
         public void printTrack(Track track)
         {
-
+            
+           Console.WriteLine("Tag: " + track.Tag + ", X: " + track.Xcoor + ", Y: " + track.Ycoor + ", Altitude: " + track.Altitude + ", Velocity: " + track.Velocity + ", Course: " + track.Compass);
         }
 
         public void printConflict(Track track)
         {
-
+            Console.WriteLine("Conflict between " + index[count.getTracks()].Tag + " & " + index[i].Tag +
+                        "   " + condition[set].TimeStamp.Day + "/" + condition[set].TimeStamp.Month + "-" + condition[set].TimeStamp.Year +
+                        " " + condition[set].TimeStamp.Hour + ":" + condition[set].TimeStamp.Minute + ":" + condition[set].TimeStamp.Second +
+                        "." + condition[set].TimeStamp.Millisecond);
         }
     }
 }
