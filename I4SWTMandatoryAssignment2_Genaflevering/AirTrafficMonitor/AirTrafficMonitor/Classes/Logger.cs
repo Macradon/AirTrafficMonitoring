@@ -27,7 +27,7 @@ namespace AirTrafficMonitor
             lines[lineNmb] = "Conflict between " + tag1 + " & " + tag2 + " at" +
                              time.Hour + ":" + time.Minute + ":" + time.Second + "." + 
                              time.Millisecond + " " + time.Day + "/" + time.Month + "-" + time.Year;
-            System.IO.File.WriteAllLines(@"C:\Users\Admin\Desktop\Logs.txt", lines);
+            System.IO.File.WriteAllLines(@"C:\Users\morte\Desktop\Logs.txt", lines);
             lineNmb++;
         }
     }

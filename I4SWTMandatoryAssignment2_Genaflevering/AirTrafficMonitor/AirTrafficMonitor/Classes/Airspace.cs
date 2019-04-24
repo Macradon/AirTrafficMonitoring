@@ -51,9 +51,10 @@ namespace AirTrafficMonitor
                 arr[counter.TrackCounter] = track;
                 rendering.printTrack(arr[counter.TrackCounter]);
 
-                for (int i = 1; i < counter.TrackCounter + 1; i++)
+                for (int i = 1; i < counter.TrackCounter; i++)
                 {
-                    conflict.checkConflict(arr[counter.TrackCounter], arr[i]);
+                    if (arr[i].Tag != arr[counter.TrackCounter].Tag)
+                        conflict.checkConflict(arr[counter.TrackCounter], arr[i]);
                 }
 
                 
