@@ -9,7 +9,10 @@ namespace AirTrafficMonitor
 {
     public class TrackCalculator: iTrackCalculator
     {
-        private iTrack trackCalculator = new Track();
+        private Track tra1 = new Track();
+        
+        
+       
 
         public TrackCalculator()
         {
@@ -55,6 +58,10 @@ namespace AirTrafficMonitor
 
             newTrack.Compass = angle;
             newTrack.Compass = Math.Round(newTrack.Compass, 2);
+
+            
+
+
         }
     }
 }
