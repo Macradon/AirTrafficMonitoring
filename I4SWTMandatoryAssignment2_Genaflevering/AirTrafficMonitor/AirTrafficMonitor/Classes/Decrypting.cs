@@ -11,6 +11,7 @@ namespace AirTrafficMonitor
 {
     public class Decrypting: iDecrypting
     {
+        private Track track = new Track();
         //attributes
         private string _tag;
         private int _x;
@@ -98,6 +99,7 @@ namespace AirTrafficMonitor
             _y = Int32.Parse(data.Substring(yPos, yLen));
             _alt = Int32.Parse(data.Substring(altPos, altLen));
             _timestamp = DateTime.ParseExact(data.Substring(timePos, timeLen), "yyyyMMddHHmmssfff", provider);
+
         }
 
 

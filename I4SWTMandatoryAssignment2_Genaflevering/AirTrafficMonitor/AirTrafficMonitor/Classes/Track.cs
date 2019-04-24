@@ -9,8 +9,8 @@ namespace AirTrafficMonitor
 {
     public class Track: iTrack
     {
-
-       //attributes
+        TrackCalculator trackCalculator = new TrackCalculator();
+        //attributes
         private string _tag;
         private int _x;
         private int _y;
@@ -18,8 +18,8 @@ namespace AirTrafficMonitor
         private double _velocity;
         private double _compass;
         private DateTime _timestamp;
-
-        Decrypting decrypt = new Decrypting();
+        private int formerX;
+        private int formerY;
 
         public string Tag
         {
@@ -65,13 +65,20 @@ namespace AirTrafficMonitor
 
         public Track()
         {
-            _tag = decrypt.Tag;
-            _x = decrypt.Xcoor;
-            _y = decrypt.Ycoor;
-            _alt = decrypt.Altitude;
-            _timestamp = decrypt.TimeStamp;
-            _velocity = 0;
-            _compass = 0;
+            
+        }
+
+        public Track(string tag, int xcoor, int ycoor, int altitude, DateTime timestamp)
+        {
+            formerX = _x;
+            formerY = _y;
+            _tag = tag;
+            _x = xcoor;
+            _y = ycoor;
+            _alt = altitude;
+            _velocity = Velocity;
+            _compass = Compass;
+            _timestamp = timestamp;
         }
     }
 }

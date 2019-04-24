@@ -7,6 +7,7 @@ namespace TransponderReceiverUser
     public class TransponderReceiverClient
     {
         private ITransponderReceiver receiver;
+        Decrypting decrypt = new Decrypting();
 
         // Using constructor injection for dependency/ies
         public TransponderReceiverClient(ITransponderReceiver receiver)
@@ -23,9 +24,9 @@ namespace TransponderReceiverUser
             // Just display data
             foreach (var data in e.TransponderData)
             {
-                System.Console.WriteLine($"Transponderdata {data}");    
+                System.Console.WriteLine($"Transponderdata {data}");
+                decrypt.decryptData(data);
             }
-
         }
     }
 }
