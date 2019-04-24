@@ -56,14 +56,14 @@
     <Compile Include="Interfaces\iDecrypting.cs" />
     <Compile Include="Interfaces\iTrack.cs" />
     <Compile Include="Interfaces\iTrackCalculator.cs" />
-    <Compile Include="Interfaces\iTransponderReciever.cs" />
+    <Compile Include="Interfaces\iTransponderReceiverClient.cs" />
     <Compile Include="Classes\Logger.cs" />
     <Compile Include="Classes\Rendering.cs" />
     <Compile Include="Classes\Track.cs" />
     <Compile Include="Main\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\TrackCalculator.cs" />
-    <Compile Include="Classes\TransponderReciever.cs" />
+    <Compile Include="Classes\TransponderReceiverClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
