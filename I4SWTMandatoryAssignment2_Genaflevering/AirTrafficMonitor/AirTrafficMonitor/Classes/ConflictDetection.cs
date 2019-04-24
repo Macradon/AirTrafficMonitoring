@@ -23,7 +23,7 @@ namespace AirTrafficMonitor
                 if (Math.Sqrt(Math.Pow((track1.Xcoor - track2.Xcoor), 2) + Math.Pow((track1.Ycoor - track2.Ycoor), 2)) > 5000 &&
                     (Math.Abs(track1.Altitude - track2.Altitude) > 300) && track1 != track2)
                 {
-                    log.printToLog(track1.Tag, track2.Tag, track1.TimeStamp);
+                    //log.printToLog(track1.Tag, track2.Tag, track1.TimeStamp);
                     render.printConflict(track1.Tag, track2.Tag, track1.TimeStamp);
                     
                 }

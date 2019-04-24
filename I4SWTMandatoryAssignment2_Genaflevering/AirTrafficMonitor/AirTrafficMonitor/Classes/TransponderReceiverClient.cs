@@ -1,4 +1,5 @@
-﻿using AirTrafficMonitor;
+﻿using System;
+using AirTrafficMonitor;
 using TransponderReceiver;
 using AirTrafficMonitor.Classes;
 
@@ -21,6 +22,7 @@ namespace TransponderReceiverUser
 
         private void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs e)
         {
+            Console.Clear();
             // Just display data
             foreach (var data in e.TransponderData)
             {
