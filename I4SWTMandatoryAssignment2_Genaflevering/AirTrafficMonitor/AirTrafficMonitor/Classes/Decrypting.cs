@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AirTrafficMonitor.Classes;
+using TransponderReceiver;
 
 namespace AirTrafficMonitor
 {
@@ -17,8 +18,6 @@ namespace AirTrafficMonitor
         private double _velocity;
         private double _compass;
         private DateTime _timestamp;
-
-        private iTransponderReciever TransponderReciever = new TransponderReceiver();
 
         public string Tag { get; set; }
         public int Xcoor { get; set; }

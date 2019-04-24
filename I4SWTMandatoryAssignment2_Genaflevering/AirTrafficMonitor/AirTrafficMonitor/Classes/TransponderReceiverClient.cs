@@ -1,13 +1,15 @@
-﻿using TransponderReceiver;
+﻿using AirTrafficMonitor;
+using TransponderReceiver;
+using AirTrafficMonitor.Classes;
 
 namespace TransponderReceiverUser
 {
-    public class TransponderReceiver
+    public class TransponderReceiverClient
     {
         private ITransponderReceiver receiver;
 
         // Using constructor injection for dependency/ies
-        public TransponderReceiver(ITransponderReceiver receiver)
+        public TransponderReceiverClient(ITransponderReceiver receiver)
         {
             // This will store the real or the fake transponder data receiver
             this.receiver = receiver;
@@ -23,6 +25,7 @@ namespace TransponderReceiverUser
             {
                 System.Console.WriteLine($"Transponderdata {data}");    
             }
+
         }
     }
 }
