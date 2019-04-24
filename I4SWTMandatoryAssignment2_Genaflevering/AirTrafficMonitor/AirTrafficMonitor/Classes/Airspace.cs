@@ -11,6 +11,7 @@ namespace AirTrafficMonitor
     {
         Counter counter = new Counter();
         Rendering rendering = new Rendering();
+        ConflictDetection conflict = new ConflictDetection();
 
         public int swCornerX { get; set; }
         public int swCornerY { get; set; }
@@ -33,14 +34,25 @@ namespace AirTrafficMonitor
             maxAlt = 20000;
         }
 
+        static Track[] arr = new Track[30];
         public void checkPosition(Track track)
         {
             if (track.Xcoor >= swCornerX && track.Xcoor <= neCornerX &&
                 track.Ycoor >= swCornerY && track.Ycoor <= neCornerY &&
                 track.Altitude >= minAlt && track.Altitude <= maxAlt)
             {
+                arr[counter.TrackCounter] = track;
+                rendering.printTrack(arr[counter.TrackCounter]);
                 counter.addTrack();
-                rendering.printTrack(track);
+
+                if (counter.TrackCounter >= 2)
+                {
+                    for (int i = 0; i < counter.TrackCounter; i++)
+                    {
+                        conflict.checkConflict(arr[counter.TrackCounter], arr[i]);
+                    }
+                }
+                
             }
             else
             {
