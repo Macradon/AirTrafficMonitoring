@@ -11,7 +11,6 @@ namespace AirTrafficMonitor
 {
     public class Logger
     {
-        iConflictDetection ConflictDetect = new ConflictDetection();
         private string[] lines = new string[30];
         private int lineNmb = 0;
 
