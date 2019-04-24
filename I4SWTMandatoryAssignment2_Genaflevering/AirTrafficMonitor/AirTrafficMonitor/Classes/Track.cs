@@ -80,7 +80,7 @@ namespace AirTrafficMonitor
             _timestamp = timestamp;
 
             trackCalculator.calculateVelocity(formerX, formerY, this);
-            trackCalculator.calculateCompass(this);
+            trackCalculator.calculateCompass(airspace.neCornerX - airspace.swCornerX, airspace.neCornerY - airspace.swCornerY, this);
 
             airspace.checkPosition(this);
         }

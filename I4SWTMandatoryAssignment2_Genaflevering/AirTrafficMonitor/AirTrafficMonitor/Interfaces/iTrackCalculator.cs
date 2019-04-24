@@ -9,6 +9,6 @@ namespace AirTrafficMonitor
     interface iTrackCalculator
     {
         void calculateVelocity(int formerX, int formerY, Track track);
-        void calculateCompass(Track track);
+        void calculateCompass(int centerX, int centerY, Track track);
     }
 }
