@@ -30,10 +30,5 @@ namespace AirTrafficMonitor
                 _trackCounter--;
             }
         }
-
-        public int getTracks()
-        {
-            return _trackCounter;
-        }
     }
 }

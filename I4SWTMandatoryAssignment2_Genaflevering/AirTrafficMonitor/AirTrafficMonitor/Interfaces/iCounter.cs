@@ -8,9 +8,7 @@ namespace AirTrafficMonitor
 {
     interface iCounter
     {
-
         void addTrack();
         void subtractTrack();
-        int getTracks();
     }
 }

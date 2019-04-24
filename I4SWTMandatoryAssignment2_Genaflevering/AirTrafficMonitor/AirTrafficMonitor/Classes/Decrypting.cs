@@ -7,25 +7,32 @@ using AirTrafficMonitor.Classes;
 
 namespace AirTrafficMonitor
 {
-    public class Decrypting: iDecrypting
+    class Decrypting: iDecrypting
     {
-        iTransponderReciever TransponderRecive = new iTransponderReciever();
+        //attributes
+        private string _tag;
+        private int _x;
+        private int _y;
+        private int _alt;
+        private double _velocity;
+        private double _compass;
+        private DateTime _timestamp;
 
-        Track iDecrypting.decryptTrack(string);
+        private iTransponderReciever TransponderReciever = new TransponderReceiver();
+
+        public string Tag { get; set; }
+        public int Xcoor { get; set; }
+        public int Ycoor { get; set; }
+        public int Altitude { get; set; }
+        public double Velocity { get; set; }
+        public double Compass { get; set; }
+        public DateTime TimeStamp { get; set; }
 
         public Decrypting()
         {
 
         }
 
-        public Decrypting(string data)
-        {
-            
-        }
 
-        public TransponderReciever Getx(string currentTrack)
-        {
-            var track = new iTrack();
-        }
     }
 }
