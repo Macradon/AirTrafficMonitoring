@@ -21,13 +21,47 @@ namespace AirTrafficMonitor
 
         iDecrypting Decrypt = new Decrypting();
 
-        public string Tag { get; set; }
-        public int Xcoor { get; set; }
-        public int Ycoor { get; set; }
-        public int Altitude { get; set; }
-        public double Velocity { get; set; }
-        public double Compass { get; set; }
-        public DateTime TimeStamp { get; set; }
+        public string Tag
+        {
+            get { return _tag; }
+            set { _tag = value; }
+        }
+
+        public int Xcoor
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+
+        public int Ycoor
+        {
+            get { return _y; }
+            set { _y = value; }
+        }
+
+        public int Altitude
+        {
+            get { return _alt; }
+            set { _alt = value; }
+        }
+
+        public DateTime TimeStamp
+        {
+            get { return _timestamp; }
+            set { _timestamp = value; }
+        }
+
+        public double Velocity
+        {
+            get { return _velocity; }
+            set { _velocity = value; }
+        }
+
+        public double Compass
+        {
+            get { return _compass; }
+            set { _compass = value; }
+        }
 
         public Track()
         {
@@ -44,8 +78,5 @@ namespace AirTrafficMonitor
             _compass = Compass;
             _timestamp = timestamp;
         }
-
-
-
     }
 }
