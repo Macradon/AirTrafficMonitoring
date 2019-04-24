@@ -19,7 +19,7 @@ namespace AirTrafficMonitor
         private double _compass;
         private DateTime _timestamp;
 
-        iDecrypting Decrypt = new Decrypting();
+        Decrypting decrypt = new Decrypting();
 
         public string Tag
         {
@@ -65,21 +65,13 @@ namespace AirTrafficMonitor
 
         public Track()
         {
-
+            _tag = decrypt.Tag;
+            _x = decrypt.Xcoor;
+            _y = decrypt.Ycoor;
+            _alt = decrypt.Altitude;
+            _timestamp = decrypt.TimeStamp;
+            _velocity = 0;
+            _compass = 0;
         }
-
-        public Track(string tag, int xcoor, int ycoor, int altitude, DateTime timestamp)
-        {
-            _tag = tag;
-            _x = xcoor;
-            _y = ycoor;
-            _alt = altitude;
-            _velocity = Velocity;
-            _compass = Compass;
-            _timestamp = timestamp;
-        }
-
-
-
     }
 }
