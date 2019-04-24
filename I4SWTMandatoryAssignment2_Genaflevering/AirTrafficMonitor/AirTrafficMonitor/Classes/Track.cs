@@ -9,7 +9,8 @@ namespace AirTrafficMonitor
 {
     public class Track: iTrack
     {
-        //attributes
+
+       //attributes
         private string _tag;
         private int _x;
         private int _y;
@@ -27,6 +28,24 @@ namespace AirTrafficMonitor
         public double Velocity { get; set; }
         public double Compass { get; set; }
         public DateTime TimeStamp { get; set; }
+
+        public Track()
+        {
+
+        }
+
+        public Track(string tag, int xcoor, int ycoor, int altitude, DateTime timestamp)
+        {
+            _tag = tag;
+            _x = xcoor;
+            _y = ycoor;
+            _alt = altitude;
+            _velocity = Velocity;
+            _compass = Compass;
+            _timestamp = timestamp;
+        }
+
+
 
     }
 }
