@@ -8,6 +8,6 @@ namespace AirTrafficMonitor
 {
     interface iAirspace
     {
-        bool checkPosition(Track track);
+        void checkPosition(Track track);
     }
 }

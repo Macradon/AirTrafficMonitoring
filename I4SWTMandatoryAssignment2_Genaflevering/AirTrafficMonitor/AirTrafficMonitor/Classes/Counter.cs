@@ -11,7 +11,11 @@ namespace AirTrafficMonitor
     {
         private int _trackCounter;
 
-        public int TrackCounter { get; set; }
+        public int TrackCounter
+        {
+            get { return _trackCounter; }
+            set { _trackCounter = value; }
+        }
 
         public Counter()
         {

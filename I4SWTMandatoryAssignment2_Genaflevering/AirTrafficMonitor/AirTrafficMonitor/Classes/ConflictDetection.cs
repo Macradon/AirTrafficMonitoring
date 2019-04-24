@@ -9,7 +9,6 @@ namespace AirTrafficMonitor
 {
     public class ConflictDetection : iConflictDetection
     {
-        iAirspace Airspace = new Airspace();
 
         public bool checkConflict(Track track1, Track track2)
         {

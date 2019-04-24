@@ -9,6 +9,9 @@ namespace AirTrafficMonitor
 {
     public class Airspace : iAirspace
     {
+        Counter counter = new Counter();
+        Rendering rendering = new Rendering();
+
         public int swCornerX { get; set; }
         public int swCornerY { get; set; }
         public int neCornerX { get; set; }
@@ -16,7 +19,7 @@ namespace AirTrafficMonitor
         public int minAlt { get; set; }
         public int maxAlt { get; set; }
 
-        iCounter counter = new Counter();
+        
 
         public Airspace()
         {
@@ -30,17 +33,19 @@ namespace AirTrafficMonitor
             maxAlt = 20000;
         }
 
-        public bool checkPosition(Track track)
+        public void checkPosition(Track track)
         {
             if (track.Xcoor >= swCornerX && track.Xcoor <= neCornerX &&
                 track.Ycoor >= swCornerY && track.Ycoor <= neCornerY &&
                 track.Altitude >= minAlt && track.Altitude <= maxAlt)
             {
                 counter.addTrack();
-                return true;
+                rendering.printTrack(track);
             }
             else
-                return false;
+            {
+
+            }
         }
     }
 }
