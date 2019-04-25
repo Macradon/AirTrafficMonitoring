@@ -11,8 +11,12 @@ namespace AirTrafficMonitor
     {
         static void Main(string[] args)
         {
+            
+
             var receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
-            var system = new TransponderReceiverUser.TransponderReceiverClient(receiver);
+            var system = new TransponderReceiverClient(receiver);
+            var airspace = new Airspace();
+
 
             while (true)
             {
