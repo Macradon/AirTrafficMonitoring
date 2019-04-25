@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decrypting.cs" />
+    <Compile Include="iDecrypting.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Classes\Airspace.cs" />
     <Compile Include="Classes\Print.cs" />
     <Compile Include="Classes\Track.cs" />
