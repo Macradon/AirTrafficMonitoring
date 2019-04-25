@@ -8,6 +8,6 @@ namespace AirTrafficMonitor
 {
     interface iDecrypting
     {
-        
+        void decryptData(string data);
     }
 }
