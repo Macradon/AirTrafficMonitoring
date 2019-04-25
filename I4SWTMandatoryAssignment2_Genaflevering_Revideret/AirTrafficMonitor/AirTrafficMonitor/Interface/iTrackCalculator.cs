@@ -8,5 +8,8 @@ namespace AirTrafficMonitor
 {
     class iTrackCalculator
     {
+        double CalculateVelocity(Track oldTrack, Track newTrack);
+
+
     }
 }
