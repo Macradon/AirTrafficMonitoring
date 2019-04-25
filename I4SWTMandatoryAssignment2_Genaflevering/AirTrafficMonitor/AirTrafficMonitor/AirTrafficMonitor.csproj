@@ -71,7 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\TrackCalculator.cs" />
     <Compile Include="Classes\TransponderReceiverClient.cs" />
+    <Compile Include="Unit Test\AirspaceTest.cs" />
+    <Compile Include="Unit Test\ConflictDetectionTest.cs" />
     <Compile Include="Unit Test\CounterTest.cs" />
+    <Compile Include="Unit Test\DecryptingTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
