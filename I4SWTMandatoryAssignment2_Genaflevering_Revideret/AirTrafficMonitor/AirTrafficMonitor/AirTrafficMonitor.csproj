@@ -46,7 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Decrypting.cs" />
+    <Compile Include="Classes\Decrypting.cs" />
     <Compile Include="Interface\iDecrypting.cs" />
     <Compile Include="Classes\Logger.cs" />
     <Compile Include="Classes\Airspace.cs" />

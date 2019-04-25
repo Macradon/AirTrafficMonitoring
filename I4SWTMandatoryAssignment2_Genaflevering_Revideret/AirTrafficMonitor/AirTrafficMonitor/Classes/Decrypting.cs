@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TransponderReceiver;
 
 namespace AirTrafficMonitor
 {
@@ -13,7 +14,12 @@ namespace AirTrafficMonitor
 
         }
 
-        public void decryptData(string data)
+        public Decrypting(ITransponderReceiver transRec)
+        {
+            trackList = new List<Track>();
+        }
+
+        public Track decryptData(string data)
         {
 
         }

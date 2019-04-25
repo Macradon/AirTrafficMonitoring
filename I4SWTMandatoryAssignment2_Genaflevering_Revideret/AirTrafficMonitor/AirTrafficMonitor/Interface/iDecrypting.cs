@@ -8,6 +8,17 @@ namespace AirTrafficMonitor
 {
     interface iDecrypting
     {
-        void decryptData(string data);
+        Track decryptData(string data);
+        event EventHandler<TracksChangedEventArgs> TracksChanged;
+    }
+
+    public class TracksChangedEventArgs : EventArgs
+    {
+        public List<Track> Tracks { get; set; }
+
+        public TracksChangedEventArgs(List<Track> tracks)
+        {
+            Tracks = tracks;
+        }
     }
 }
