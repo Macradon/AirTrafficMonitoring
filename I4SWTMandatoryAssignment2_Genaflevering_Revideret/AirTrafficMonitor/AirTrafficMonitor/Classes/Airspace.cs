@@ -19,8 +19,6 @@ namespace AirTrafficMonitor
 
         public Airspace()
         {
-
-
             swCornerX = 5000;
             swCornerY = 5000;
 
@@ -31,7 +29,6 @@ namespace AirTrafficMonitor
             maxAlt = 20000;
         }
 
-
         //Undersøger om tracken er i Airspace
         public bool checkAirspace(Track track)
         {
@@ -41,9 +38,6 @@ namespace AirTrafficMonitor
                 return true;
             else
                 return false;
-
         }
-
-
     }
 }
