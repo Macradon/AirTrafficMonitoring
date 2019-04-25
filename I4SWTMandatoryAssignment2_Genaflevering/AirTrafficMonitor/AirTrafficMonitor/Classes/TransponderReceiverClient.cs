@@ -2,11 +2,14 @@
 using AirTrafficMonitor;
 using TransponderReceiver;
 using AirTrafficMonitor.Classes;
+using System.Collections.Generic;
 
 namespace TransponderReceiverUser
 {
+    public delegate void TrackListe(object sender, Decrypting args);
     public class TransponderReceiverClient
     {
+        public event TrackListe onTrackListe;
         private ITransponderReceiver receiver;
         Decrypting decrypt = new Decrypting();
 
@@ -22,13 +25,19 @@ namespace TransponderReceiverUser
 
         private void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs e)
         {
+            
+            List<string> liste = new List<string>();
             Console.Clear();
             // Just display data
             foreach (var data in e.TransponderData)
             {
                 //System.Console.WriteLine($"Transponderdata {data}");
-                decrypt.decryptData(data);
+                liste.Add(data);
             }
-        }
+         
+            }
+
+        Decrypting e = new Decrypting();
+
     }
 }
