@@ -67,7 +67,7 @@ namespace AirTrafficMonitor
 
         public Decrypting()
         {
-            _myTrack = new TransponderReceiverClient();
+            this._myTrack += new Handler();
             _myTrack.OnTrackListe += _myTrack_OnTrackListe;
         }
 

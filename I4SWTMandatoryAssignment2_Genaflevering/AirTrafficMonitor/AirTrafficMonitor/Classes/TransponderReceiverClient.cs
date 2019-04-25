@@ -44,7 +44,7 @@ namespace TransponderReceiver
                 Console.WriteLine($"Transponderdata {data}");
                 eks.Add(data);
             }
-            var handler = OnTrackListe;
+            EventHandler<TransponderReceiverEventArgs> handler = OnTrackListe;
             handler?.Invoke(this, new TransponderReceiverEventArgs(eks));
         }
     }
