@@ -6,26 +6,21 @@ using System.Collections.Generic;
 
 namespace TransponderReceiver
 {
-    public class AnswerEventArgs : EventArgs
+    public class TransponderReceiverEventArgs : EventArgs
     {
-        public List<string> liste;
+        public List<string> liste { get; set; }
+
+        public TransponderReceiverEventArgs(List<string> transString)
+        {
+            liste = transString;
+        }
     }
     
-    public class TransponderReceiverClient
+    public class TransponderReceiverClient : iTransponderReceiverClient
     {
-        public delegate void TrackListe(List<string> optaget);
-
-        public event TrackListe OnTrackListe;
-
+        public event EventHandler<TransponderReceiverEventArgs> OnTrackListe;
+        public List<string> eks;
         private ITransponderReceiver receiver;
-
-        List<string> eks;
-
-        public TransponderReceiverClient()
-        {
-
-        }
-        
 
         // Using constructor injection for dependency/ies
         public TransponderReceiverClient(ITransponderReceiver receiver)
@@ -33,20 +28,24 @@ namespace TransponderReceiver
             // This will store the real or the fake transponder data receiver
             this.receiver = receiver;
 
+            eks = new List<string>();
+
             // Attach to the event of the real or the fake TDR
             this.receiver.TransponderDataReady += ReceiverOnTransponderDataReady;
         }
-
+        
         private void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs e)
         {
+            //eks.Clear();
             Console.Clear();
             // Just display data
             foreach (var data in e.TransponderData)
             {
-                //System.Console.WriteLine($"Transponderdata {data}");
+                Console.WriteLine($"Transponderdata {data}");
                 eks.Add(data);
             }
-            OnTrackListe(eks);
+            var handler = OnTrackListe;
+            handler?.Invoke(this, new TransponderReceiverEventArgs(eks));
         }
     }
 }

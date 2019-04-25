@@ -71,20 +71,20 @@ namespace AirTrafficMonitor
             _myTrack.OnTrackListe += _myTrack_OnTrackListe;
         }
 
-        private void _myTrack_OnTrackListe(List<string> e)
+        private void _myTrack_OnTrackListe(object sender, List<string> e)
         {
             decryptData(e);
-
-            throw new NotImplementedException();
         }
 
         public void decryptData(List<string> data)
         {
+            var aggData = String.Join("",data.ToArray());
+
             Console.WriteLine("fuck");
             CultureInfo provider = CultureInfo.InvariantCulture;
 
             string[] splitter = new string[5];
-            splitter = data.Split(';');
+            splitter = aggData.Split(';');
             int i = 0;
 
             string test = string.Join(" ", data);
@@ -107,11 +107,11 @@ namespace AirTrafficMonitor
             int altPos = yPos + yLen + 1;
             int timePos = altPos + altLen + 1;
 
-            _tag = data.Substring(tagPos, tagLen);
-            _x = Int32.Parse(data.Substring(xPos, xLen));
-            _y = Int32.Parse(data.Substring(yPos, yLen));
-            _alt = Int32.Parse(data.Substring(altPos, altLen));
-            _timestamp = DateTime.ParseExact(data.Substring(timePos, timeLen), "yyyyMMddHHmmssfff", provider);
+            _tag = aggData.Substring(tagPos, tagLen);
+            _x = Int32.Parse(aggData.Substring(xPos, xLen));
+            _y = Int32.Parse(aggData.Substring(yPos, yLen));
+            _alt = Int32.Parse(aggData.Substring(altPos, altLen));
+            _timestamp = DateTime.ParseExact(aggData.Substring(timePos, timeLen), "yyyyMMddHHmmssfff", provider);
 
             Track track = new Track(_tag, _x, _y, _alt, _timestamp);
     }
