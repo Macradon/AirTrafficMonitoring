@@ -87,6 +87,8 @@ namespace AirTrafficMonitor
             splitter = data.Split(';');
             int i = 0;
 
+            string test = string.Join(" ", data);
+
             foreach (var variable in splitter)
             {
                 splitter[i] = variable;
