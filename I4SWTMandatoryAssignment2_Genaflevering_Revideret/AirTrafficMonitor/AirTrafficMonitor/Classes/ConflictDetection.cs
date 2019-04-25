@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirTrafficMonitor.Classes
+namespace AirTrafficMonitor
 {
-    interface iConflictDetection
+    class ConflictDetection
     {
-        void checkConflict(Track track1, Track track2);
     }
 }

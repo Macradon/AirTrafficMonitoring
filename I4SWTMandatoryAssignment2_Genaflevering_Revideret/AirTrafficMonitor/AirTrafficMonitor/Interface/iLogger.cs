@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirTrafficMonitorApplication
+namespace AirTrafficMonitor
 {
-    class Program
+    class iLogger
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
