@@ -8,9 +8,23 @@ namespace AirTrafficMonitor
 {
     public class TrackCalculator : iTrackCalculator
     {
-        public TrackCalculator()
+        public TrackCalculator(iAirspace airspace)
         {
+            airspace.AirspaceDataReady += AirspaceOnDataReady;
 
+            Console.Write("TrackCalc Test\n");
+        }
+
+        private void AirspaceOnDataReady(object sender, RawAirspaceDataEventArgs e)
+        {
+            Console.Clear();
+            foreach(var data in e.AirspaceData)
+            {
+                Console.WriteLine($"AairspaceData {data}");
+                var trackVelocity = calculateVelocity();
+                var trackCompass = calculateCompass();
+                
+            }
         }
 
         public void calculateVelocity(Track trackBefore, Track trackNew)

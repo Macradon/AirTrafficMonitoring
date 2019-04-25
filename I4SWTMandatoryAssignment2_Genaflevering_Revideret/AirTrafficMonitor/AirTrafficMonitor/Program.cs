@@ -14,7 +14,7 @@ namespace AirTrafficMonitor
             var receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
             var decrypting = new Decrypting(receiver);
             var airspace = new Airspace();
-            var trackCalculator = new TrackCalculator();
+            var trackCalculator = new TrackCalculator(airspace);
             var rendering = new Rendering();
             var conflictDetection = new ConflictDetection();
 
