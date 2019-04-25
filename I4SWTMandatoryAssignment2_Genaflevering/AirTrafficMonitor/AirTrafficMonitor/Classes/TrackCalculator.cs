@@ -14,45 +14,45 @@ namespace AirTrafficMonitor
             
         }
 
-        public void calculateVelocity(int formerX, int formerY, Track track)
+        public void calculateVelocity(Track trackBefore, Track trackNew)
         {
-            double Velocity = Math.Sqrt((Math.Pow((track.Xcoor - formerX), 2)) + (Math.Pow((track.Ycoor - formerY), 2)));
-            track.Velocity = Math.Round(Velocity, 2);
+            double distance = Math.Sqrt((Math.Pow((trackNew.Xcoor - trackBefore.Xcoor), 2)) + (Math.Pow((trackNew.Ycoor - trackBefore.Ycoor), 2)));
+            trackNew.Velocity = Math.Round(distance, 2);
         }
 
-        public void calculateCompass(int centerX, int centerY, Track track)
+        public void calculateCompass(Track centerPos, Track trackPos)
         {
-            double xDis = Math.Abs(centerX - track.Xcoor);
-            double yDis = Math.Abs(centerY - track.Ycoor);
+            double xDis = Math.Abs(centerPos.Xcoor - trackPos.Xcoor);
+            double yDis = Math.Abs(centerPos.Ycoor - trackPos.Ycoor);
             double hypo = Math.Sqrt(Math.Pow(xDis, 2) + Math.Pow(yDis, 2));
 
             double angle;
-            if (track.Xcoor == centerX && track.Ycoor == centerY)     //Track is centered
+            if (trackPos.Xcoor == centerPos.Xcoor && trackPos.Ycoor == centerPos.Ycoor)     //Track is centered
                 angle = 0;
-            else if (track.Xcoor == centerX && track.Ycoor > centerY) //Track moves North
+            else if (trackPos.Xcoor == centerPos.Xcoor && trackPos.Ycoor > centerPos.Ycoor) //Track moves North
                 angle = 0;
-            else if (track.Xcoor < centerX && track.Ycoor == centerY) //Track moves West
+            else if (trackPos.Xcoor < centerPos.Xcoor && trackPos.Ycoor == centerPos.Ycoor) //Track moves West
                 angle = 90;
-            else if (track.Xcoor == centerX && track.Ycoor < centerY) //Track moves South
+            else if (trackPos.Xcoor == centerPos.Xcoor && trackPos.Ycoor < centerPos.Ycoor) //Track moves South
                 angle = 180;
-            else if (track.Xcoor > centerX && track.Ycoor == centerY) //Track moves East
+            else if (trackPos.Xcoor > centerPos.Xcoor && trackPos.Ycoor == centerPos.Ycoor) //Track moves East
                 angle = 270;
             else
             {
                 angle = Math.Acos((-(Math.Pow(yDis, 2)) + Math.Pow(xDis, 2) + Math.Pow(hypo, 2)) / (2 * xDis * hypo)) * 360 / (2 * Math.PI);
 
-                if (track.Xcoor < centerX && track.Ycoor >= centerY)
+                if (trackPos.Xcoor < centerPos.Xcoor && trackPos.Ycoor >= centerPos.Ycoor)
                     angle = 90 - angle;
-                else if (track.Xcoor < centerX && track.Ycoor < centerY)
+                else if (trackPos.Xcoor < centerPos.Xcoor && trackPos.Ycoor < centerPos.Ycoor)
                     angle += 90;
-                else if (track.Xcoor >= centerX && track.Ycoor < centerY)
+                else if (trackPos.Xcoor >= centerPos.Xcoor && trackPos.Ycoor < centerPos.Ycoor)
                     angle = 270 - angle;
-                else if (track.Xcoor >= centerX && track.Ycoor >= centerY)
+                else if (trackPos.Xcoor >= centerPos.Xcoor && trackPos.Ycoor >= centerPos.Ycoor)
                     angle += 270;
             }
 
-            double Compass = angle;
-            track.Compass = Math.Round(Compass, 2);
+            double cource = angle;
+            trackPos.Compass = Math.Round(cource, 2);
         }
     }
 }

@@ -66,23 +66,18 @@ namespace AirTrafficMonitor
 
         public Track()
         {
-            
+            _tag = "";
+            _x = 0;
+            _y = 0;
+            _alt = 0;
+            _timestamp = null;
+            _velocity = 0;
+            _compass = 0;
         }
 
         public Track(string tag, int xcoor, int ycoor, int altitude, DateTime timestamp)
         {
-            formerX = _x;
-            formerY = _y;
-            _tag = tag;
-            _x = xcoor;
-            _y = ycoor;
-            _alt = altitude;
-            _timestamp = timestamp;
-
-            trackCalculator.calculateVelocity(formerX, formerY, this);
-            trackCalculator.calculateCompass(airspace.neCornerX - airspace.swCornerX, airspace.neCornerY - airspace.swCornerY, this);
-
-            airspace.checkPosition(this);
+            
         }
     }
 }
