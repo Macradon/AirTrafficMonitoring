@@ -6,16 +6,10 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    public class Decrypting : iDecrypting
+    interface iAirspace
     {
-        public Decrypting()
-        {
-
-        }
-
-        public void decryptData(string data)
-        {
-
-        }
+          
+        bool checkAirspace(Track track);
     }
 }
+

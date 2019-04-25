@@ -6,16 +6,8 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    public class Decrypting : iDecrypting
+    interface iTrack
     {
-        public Decrypting()
-        {
-
-        }
-
-        public void decryptData(string data)
-        {
-
-        }
+        string ToString();
     }
 }

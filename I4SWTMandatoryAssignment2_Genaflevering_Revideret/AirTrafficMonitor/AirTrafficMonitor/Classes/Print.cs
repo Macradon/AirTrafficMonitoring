@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    public class Decrypting : iDecrypting
+    public class Print : iPrint
     {
-        public Decrypting()
+        public void print(string msg)
         {
-
+            Console.WriteLine(msg);
         }
 
-        public void decryptData(string data)
+        public void Clear()
         {
 
+            Console.Clear();
         }
+
     }
 }
