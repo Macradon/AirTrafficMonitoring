@@ -9,7 +9,5 @@ namespace AirTrafficMonitor
     interface iTrackCalculator
     {
         double CalculateVelocity(Track oldTrack, Track newTrack);
-
-
     }
 }
