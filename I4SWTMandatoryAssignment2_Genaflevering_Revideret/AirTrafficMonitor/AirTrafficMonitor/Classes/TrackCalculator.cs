@@ -8,23 +8,32 @@ namespace AirTrafficMonitor
 {
     public class TrackCalculator : iTrackCalculator
     {
+        
+        public event EventHandler<CorrectTracksEventArgs> correctTracks;
+        public List<Track> AirspacedTracks;
+
         public TrackCalculator(iAirspace airspace)
         {
-            airspace.AirspaceDataReady += AirspaceOnDataReady;
-
-            Console.Write("TrackCalc Test\n");
+            airspace.TracksDecrypted += AirspaceOnDataReady;
         }
 
-        private void AirspaceOnDataReady(object sender, RawAirspaceDataEventArgs e)
+        private void AirspaceOnDataReady(object sender, DecryptedTracksEventArgs e)
         {
+            Track centerPos = new Track();
+            Airspace airspace = new Airspace();
+            centerPos.Xcoor = airspace.neCornerX - airspace.swCornerX;
+            centerPos.Ycoor = airspace.neCornerY - airspace.swCornerY;
+
             Console.Clear();
-            foreach(var data in e.AirspaceData)
+            foreach(var data in e.DecryptedTracks)
             {
-                Console.WriteLine($"AairspaceData {data}");
-                var trackVelocity = calculateVelocity();
-                var trackCompass = calculateCompass();
-                
+                calculateVelocity(data, data);
+                calculateCompass(centerPos, data);
+                AirspacedTracks.Add(data);
             }
+
+            var handler = correctTracks;
+            handler?.Invoke(this, new CorrectTracksEventArgs(AirspacedTracks));
         }
 
         public void calculateVelocity(Track trackBefore, Track trackNew)

@@ -11,4 +11,14 @@ namespace AirTrafficMonitor
         void calculateVelocity(Track trackBefore, Track trackNow);
         void calculateCompass(Track centerPos, Track trackPos);
     }
+
+    public class CorrectTracksEventArgs : EventArgs
+    {
+        public List<Track> AirspacedTracks { get; set; }
+
+        public CorrectTracksEventArgs(List<Track> correctTracks)
+        {
+            AirspacedTracks = correctTracks;
+        }
+    }
 }

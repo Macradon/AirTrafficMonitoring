@@ -19,6 +19,10 @@ namespace AirTrafficMonitor
         public event EventHandler<DecryptedTracksEventArgs> TracksDecrypted;
         public List<Track> DecryptedTracks;
 
+        public Airspace()
+        {
+
+        }
 
         public Airspace(iDecrypting decrypting)
         {
