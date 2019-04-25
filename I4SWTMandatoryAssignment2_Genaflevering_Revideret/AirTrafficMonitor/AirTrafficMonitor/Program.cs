@@ -14,6 +14,10 @@ namespace AirTrafficMonitor
             var receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
             var system = new Decrypting(receiver);
 
+            while (true)
+            {
+
+            }
         }
     }
 }

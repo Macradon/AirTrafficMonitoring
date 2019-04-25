@@ -30,6 +30,7 @@ namespace AirTrafficMonitor
 
         private void ReceiverOnDataReady(object sender, RawTransponderDataEventArgs e)
         {
+            Console.Clear();
             trackList.Clear();
             foreach (var data in e.TransponderData)
             {
