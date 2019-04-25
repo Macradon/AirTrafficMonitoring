@@ -46,6 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ConflictDetection.cs" />
+    <Compile Include="Decrypting.cs" />
+    <Compile Include="Interface\iLogger.cs" />
+    <Compile Include="Interface\iConflictDetection.cs" />
     <Compile Include="Classes\Decrypting.cs" />
     <Compile Include="Interface\iDecrypting.cs" />
     <Compile Include="Classes\Logger.cs" />
@@ -55,8 +59,12 @@
     <Compile Include="Interface\iAirspace.cs" />
     <Compile Include="Interface\iPrint.cs" />
     <Compile Include="Interface\iTrack.cs" />
+    <Compile Include="Interface\iTrackCalculator.cs" />
+    <Compile Include="Interface\iRendering.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\Rendering.cs" />
+    <Compile Include="Classes\TrackCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
