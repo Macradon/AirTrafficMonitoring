@@ -30,18 +30,13 @@ namespace AirTrafficMonitor
 
         public Track()
         {
-
-        }
-
-        public Track(string tag, int xcoor, int ycoor, int altitude, DateTime timestamp)
-        {
-            _tag = tag;
-            _x = xcoor;
-            _y = ycoor;
-            _alt = altitude;
-            _velocity = Velocity;
-            _compass = Compass;
-            _timestamp = timestamp;
+            _tag = "";
+            _x = 0;
+            _y = 0;
+            _alt = 0;
+            _velocity = 0;
+            _compass = 0;
+            _timestamp = DateTime.Now;
         }
     }
 }
