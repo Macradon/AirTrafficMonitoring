@@ -9,6 +9,7 @@ using System.Globalization;  //Used for DateTime
 
 namespace AirTrafficMonitor
 {
+    
     public class Decrypting: iDecrypting
     {
         private TransponderReceiverClient _myTrack;
@@ -67,13 +68,14 @@ namespace AirTrafficMonitor
 
         public Decrypting()
         {
-            _myTrack = new TransponderReceiverClient();
-            _myTrack.OnTrackListe += _myTrack_OnTrackListe;
+            TransponderReceiverClient myCalc = new TransponderReceiverClient();
+            myCalc.OnKnowAnswer += new KnowAnswer(myCalc_OnKnowAnswer);
         }
 
-        private void _myTrack_OnTrackListe(object sender, List<string> e)
+        private void myCalc_OnKnowAnswer(object sender, AnswerEventArgs e)
         {
-            decryptData(e);
+            //decryptData(e);
+            Console.WriteLine("Sup");
         }
 
         public void decryptData(List<string> data)

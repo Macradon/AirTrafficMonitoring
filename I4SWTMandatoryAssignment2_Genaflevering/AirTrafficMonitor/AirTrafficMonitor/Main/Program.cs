@@ -15,7 +15,7 @@ namespace AirTrafficMonitor
 
             var receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
             var system = new TransponderReceiverClient(receiver);
-            var airspace = new Airspace();
+            Decrypting decrypting = new Decrypting();
 
 
             while (true)
