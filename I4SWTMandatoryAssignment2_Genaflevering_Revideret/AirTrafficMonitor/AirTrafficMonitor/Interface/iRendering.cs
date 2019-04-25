@@ -10,4 +10,14 @@ namespace AirTrafficMonitor
     {
 
     }
+
+    public class CalculatedTracksEventArgs : EventArgs
+    {
+        public List<Track> CalculatedTracks { get; set; }
+
+        public CalculatedTracksEventArgs(List<Track> tracksCalculated)
+        {
+            CalculatedTracks = tracksCalculated;
+        }
+    }
 }

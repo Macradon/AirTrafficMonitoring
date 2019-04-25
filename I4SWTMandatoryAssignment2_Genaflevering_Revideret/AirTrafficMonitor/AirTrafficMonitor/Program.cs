@@ -15,7 +15,7 @@ namespace AirTrafficMonitor
             var decrypting = new Decrypting(receiver);
             var airspace = new Airspace(decrypting);
             var trackCalculator = new TrackCalculator(airspace);
-            var rendering = new Rendering();
+            var rendering = new Rendering(trackCalculator);
             var conflictDetection = new ConflictDetection();
 
             while (true)

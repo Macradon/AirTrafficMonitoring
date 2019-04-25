@@ -8,5 +8,10 @@ namespace AirTrafficMonitor
 {
     class ConflictDetection
     {
+        bool checkConflict(Track track1, Track track2)
+        {
+            //Er ikke blevet implementeret endnu
+            return true;
+        }
     }
 }

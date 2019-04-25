@@ -8,5 +8,6 @@ namespace AirTrafficMonitor
 {
     interface iConflictDetection
     {
+        bool checkConflict(Track track1, Track track2);
     }
 }

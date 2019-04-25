@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    interface iTrackCalculator
+    public interface iTrackCalculator
     {
         void calculateVelocity(Track trackBefore, Track trackNow);
         void calculateCompass(Track centerPos, Track trackPos);
+        event EventHandler<NewTracksEventArgs> CalculatedTracks;
     }
 
     public class CorrectTracksEventArgs : EventArgs
