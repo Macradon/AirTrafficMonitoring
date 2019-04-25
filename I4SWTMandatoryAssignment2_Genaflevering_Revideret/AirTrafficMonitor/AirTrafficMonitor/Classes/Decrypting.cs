@@ -14,6 +14,8 @@ namespace AirTrafficMonitor
 
         }
 
+        public event EventHandler<NewTracksEventArgs> newTracks
+
         public Decrypting(ITransponderReceiver transRec)
         {
             trackList = new List<Track>();

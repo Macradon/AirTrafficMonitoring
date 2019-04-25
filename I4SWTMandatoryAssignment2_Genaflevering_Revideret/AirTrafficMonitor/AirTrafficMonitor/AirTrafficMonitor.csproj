@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ConflictDetection.cs" />
-    <Compile Include="Decrypting.cs" />
     <Compile Include="Interface\iLogger.cs" />
     <Compile Include="Interface\iConflictDetection.cs" />
     <Compile Include="Classes\Decrypting.cs" />
