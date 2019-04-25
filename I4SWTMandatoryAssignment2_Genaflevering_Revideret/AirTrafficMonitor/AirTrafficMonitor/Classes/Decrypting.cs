@@ -44,6 +44,7 @@ namespace AirTrafficMonitor
                 var handler = UpdatedTracks;
                 handler?.Invoke(this, new NewTracksEventArgs(trackList));
             }
+            
         }
 
         public Track decryptData(string currentTrack)
