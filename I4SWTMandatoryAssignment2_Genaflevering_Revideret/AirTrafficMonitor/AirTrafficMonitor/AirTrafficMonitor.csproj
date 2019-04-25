@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Airspace.cs" />
+    <Compile Include="Classes\Print.cs" />
+    <Compile Include="Classes\Track.cs" />
+    <Compile Include="Interface\iAirspace.cs" />
+    <Compile Include="Interface\iPrint.cs" />
+    <Compile Include="Interface\iTrack.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
