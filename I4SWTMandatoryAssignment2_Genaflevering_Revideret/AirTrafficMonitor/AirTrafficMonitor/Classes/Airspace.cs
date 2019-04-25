@@ -16,8 +16,11 @@ namespace AirTrafficMonitor
         public int minAlt { get; set; }
         public int maxAlt { get; set; }
 
+        public event EventHandler<DecryptedTracksEventArgs> TracksDecrypted;
+        public List<Track> DecryptedTracks;
 
-        public Airspace()
+
+        public Airspace(iDecrypting decrypting)
         {
             swCornerX = 5000;
             swCornerY = 5000;
@@ -27,6 +30,22 @@ namespace AirTrafficMonitor
 
             minAlt = 500;
             maxAlt = 20000;
+
+            DecryptedTracks = new List<Track>();
+            decrypting.UpdatedTracks += InsideAirspace;
+        }
+
+        public void InsideAirspace(object sender, NewTracksEventArgs e)
+        {
+            foreach (var tracks in e.Tracks)
+            {
+                if (checkAirspace(tracks))
+                {
+                    DecryptedTracks.Add(tracks);
+                }
+            }
+            var handler = TracksDecrypted;
+            handler?.Invoke(this, new DecryptedTracksEventArgs(DecryptedTracks));
         }
 
         //Undersøger om tracken er i Airspace

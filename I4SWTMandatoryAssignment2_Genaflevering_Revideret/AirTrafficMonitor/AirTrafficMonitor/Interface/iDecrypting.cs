@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    interface iDecrypting
+    public interface iDecrypting
     {
         Track decryptData(string trackData);
         event EventHandler<NewTracksEventArgs> UpdatedTracks;

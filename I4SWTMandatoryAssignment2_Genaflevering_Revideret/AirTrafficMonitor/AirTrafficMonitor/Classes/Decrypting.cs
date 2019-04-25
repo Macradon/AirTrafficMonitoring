@@ -28,7 +28,7 @@ namespace AirTrafficMonitor
             Console.Write("Decrypt Test\n");
         }
 
-        private void ReceiverOnDataReady(object sender, RawTransponderDataEventArgs e)
+        public void ReceiverOnDataReady(object sender, RawTransponderDataEventArgs e)
         {
             Console.Clear();
             trackList.Clear();

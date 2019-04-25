@@ -6,9 +6,20 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitor
 {
-    interface iAirspace
+    public interface iAirspace
     {
         bool checkAirspace(Track track);
+        event EventHandler<DecryptedTracksEventArgs> TracksDecrypted;
+    }
+
+    public class DecryptedTracksEventArgs : EventArgs
+    {
+        public List<Track> DecryptedTracks { get; set; }
+
+        public DecryptedTracksEventArgs(List<Track> tracksDecrypted)
+        {
+            DecryptedTracks = tracksDecrypted;
+        }
     }
 }
 
