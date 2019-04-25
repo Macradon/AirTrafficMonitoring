@@ -4,48 +4,49 @@ using TransponderReceiver;
 using AirTrafficMonitor.Classes;
 using System.Collections.Generic;
 
-namespace TransponderReceiver
+namespace AirTrafficMonitor
 {
-    public class TransponderReceiverEventArgs : EventArgs
-    {
-        public List<string> liste { get; set; }
+    public delegate void KnowAnswer(object sender, AnswerEventArgs eks);
 
-        public TransponderReceiverEventArgs(List<string> transString)
-        {
-            liste = transString;
-        }
+    public class AnswerEventArgs : EventArgs
+    {
+        public List<string> answer = new List<string>();
     }
+
     
+
     public class TransponderReceiverClient : iTransponderReceiverClient
     {
-        public event EventHandler<TransponderReceiverEventArgs> OnTrackListe;
-        public List<string> eks;
         private ITransponderReceiver receiver;
 
+        public event KnowAnswer OnKnowAnswer;
         // Using constructor injection for dependency/ies
         public TransponderReceiverClient(ITransponderReceiver receiver)
         {
             // This will store the real or the fake transponder data receiver
             this.receiver = receiver;
 
-            eks = new List<string>();
-
             // Attach to the event of the real or the fake TDR
             this.receiver.TransponderDataReady += ReceiverOnTransponderDataReady;
         }
-        
-        private void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs e)
+
+        public TransponderReceiverClient()
         {
+
+        }
+
+        public void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs e)
+        {
+            AnswerEventArgs eks = new AnswerEventArgs();
             //eks.Clear();
             Console.Clear();
             // Just display data
             foreach (var data in e.TransponderData)
             {
                 Console.WriteLine($"Transponderdata {data}");
-                eks.Add(data);
+                eks.answer.Add(data);
             }
-            var handler = OnTrackListe;
-            handler?.Invoke(this, new TransponderReceiverEventArgs(eks));
+            OnKnowAnswer(this, eks);
         }
     }
 }
