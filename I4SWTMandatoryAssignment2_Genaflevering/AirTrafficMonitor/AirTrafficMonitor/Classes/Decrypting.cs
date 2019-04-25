@@ -11,7 +11,9 @@ namespace AirTrafficMonitor
 {
     public class Decrypting: iDecrypting
     {
+        private TransponderReceiverClient _myTrack;
         
+
         //attributes
         private string _tag;
         private int _x;
@@ -65,11 +67,20 @@ namespace AirTrafficMonitor
 
         public Decrypting()
         {
-
+            _myTrack = new TransponderReceiverClient();
+            _myTrack.OnTrackListe += _myTrack_OnTrackListe;
         }
 
-        public void decryptData(string data)
+        private void _myTrack_OnTrackListe(List<string> e)
         {
+            decryptData(e);
+
+            throw new NotImplementedException();
+        }
+
+        public void decryptData(List<string> data)
+        {
+            Console.WriteLine("fuck");
             CultureInfo provider = CultureInfo.InvariantCulture;
 
             string[] splitter = new string[5];

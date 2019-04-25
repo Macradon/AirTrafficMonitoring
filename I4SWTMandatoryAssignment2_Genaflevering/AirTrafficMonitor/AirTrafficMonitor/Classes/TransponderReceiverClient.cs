@@ -4,14 +4,28 @@ using TransponderReceiver;
 using AirTrafficMonitor.Classes;
 using System.Collections.Generic;
 
-namespace TransponderReceiverUser
+namespace TransponderReceiver
 {
-    public delegate void TrackListe(object sender, Decrypting args);
+    public class AnswerEventArgs : EventArgs
+    {
+        public List<string> liste;
+    }
+    
     public class TransponderReceiverClient
     {
-        public event TrackListe onTrackListe;
+        public delegate void TrackListe(List<string> optaget);
+
+        public event TrackListe OnTrackListe;
+
         private ITransponderReceiver receiver;
-        Decrypting decrypt = new Decrypting();
+
+        List<string> eks;
+
+        public TransponderReceiverClient()
+        {
+
+        }
+        
 
         // Using constructor injection for dependency/ies
         public TransponderReceiverClient(ITransponderReceiver receiver)
@@ -25,19 +39,14 @@ namespace TransponderReceiverUser
 
         private void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs e)
         {
-            
-            List<string> liste = new List<string>();
             Console.Clear();
             // Just display data
             foreach (var data in e.TransponderData)
             {
                 //System.Console.WriteLine($"Transponderdata {data}");
-                liste.Add(data);
+                eks.Add(data);
             }
-         
-            }
-
-        Decrypting e = new Decrypting();
-
+            OnTrackListe(eks);
+        }
     }
 }
