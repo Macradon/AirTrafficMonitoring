@@ -68,11 +68,14 @@ namespace AirTrafficMonitor
         public Decrypting()
         {
             _myTrack = new TransponderReceiverClient();
-            _myTrack.OnTrackListe += _myTrack_OnTrackListe;
+            _myTrack.TrackListe += _myTrack_OnTrackListe;
+            Console.WriteLine("We in bois");
+            _myTrack_OnTrackListe(_myTrack.eks , EventArgs.Empty);
         }
 
-        private void _myTrack_OnTrackListe(object sender, List<string> e)
+        public void _myTrack_OnTrackListe(object sender, EventArgs OnTrackListe )
         {
+            var e = _myTrack.eks;
             decryptData(e);
         }
 
