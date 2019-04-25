@@ -68,7 +68,7 @@ namespace AirTrafficMonitor
 
         }
 
-        public void decryptData(string data)
+        public string decryptData(string data)
         {
             CultureInfo provider = CultureInfo.InvariantCulture;
 
@@ -100,8 +100,8 @@ namespace AirTrafficMonitor
             _alt = Int32.Parse(data.Substring(altPos, altLen));
             _timestamp = DateTime.ParseExact(data.Substring(timePos, timeLen), "yyyyMMddHHmmssfff", provider);
 
-            Track track = new Track(_tag, _x, _y, _alt, _timestamp);
-    }
+            return "";
+        }
 
 
     }

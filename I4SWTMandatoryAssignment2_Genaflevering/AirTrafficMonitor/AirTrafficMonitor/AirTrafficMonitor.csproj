@@ -74,7 +74,6 @@
     <Compile Include="Unit Test\AirspaceTest.cs" />
     <Compile Include="Unit Test\CounterTest.cs" />
     <Compile Include="Unit Test\DecryptingTest.cs" />
-    <Compile Include="Unit Test\TrackTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
