@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TransponderReceiver;
 
 namespace AirTrafficMonitor
 {
@@ -10,6 +11,9 @@ namespace AirTrafficMonitor
     {
         static void Main(string[] args)
         {
+            var receiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
+            var system = new Decrypting(receiver);
+
         }
     }
 }
