@@ -67,12 +67,15 @@ namespace AirTrafficMonitor
 
         public Decrypting()
         {
-            this._myTrack += new Handler();
-            _myTrack.OnTrackListe += _myTrack_OnTrackListe;
+            _myTrack = new TransponderReceiverClient();
+            _myTrack.TrackListe += _myTrack_OnTrackListe;
+            Console.WriteLine("We in bois");
+            _myTrack_OnTrackListe(_myTrack.eks , EventArgs.Empty);
         }
 
-        private void _myTrack_OnTrackListe(object sender, List<string> e)
+        public void _myTrack_OnTrackListe(object sender, EventArgs OnTrackListe )
         {
+            var e = _myTrack.eks;
             decryptData(e);
         }
 
@@ -86,6 +89,8 @@ namespace AirTrafficMonitor
             string[] splitter = new string[5];
             splitter = aggData.Split(';');
             int i = 0;
+
+            string test = string.Join(" ", data);
 
             foreach (var variable in splitter)
             {

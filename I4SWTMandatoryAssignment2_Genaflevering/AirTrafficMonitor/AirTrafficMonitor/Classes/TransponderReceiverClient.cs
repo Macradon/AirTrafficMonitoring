@@ -15,10 +15,13 @@ namespace TransponderReceiver
             liste = transString;
         }
     }
+
     
     public class TransponderReceiverClient : iTransponderReceiverClient
     {
-        public event EventHandler<TransponderReceiverEventArgs> OnTrackListe;
+        //public event EventHandler<TransponderReceiverEventArgs> OnTrackListe;
+        public delegate void TracklisteHandler(object source, EventArgs args);
+        public event TracklisteHandler TrackListe;
         public List<string> eks;
         private ITransponderReceiver receiver;
 
@@ -33,8 +36,14 @@ namespace TransponderReceiver
             // Attach to the event of the real or the fake TDR
             this.receiver.TransponderDataReady += ReceiverOnTransponderDataReady;
         }
+
+        public TransponderReceiverClient()
+        {
+        }
+
         
-        private void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs e)
+
+       private void ReceiverOnTransponderDataReady(object sender, RawTransponderDataEventArgs e)
         {
             //eks.Clear();
             Console.Clear();
@@ -44,8 +53,9 @@ namespace TransponderReceiver
                 Console.WriteLine($"Transponderdata {data}");
                 eks.Add(data);
             }
-            EventHandler<TransponderReceiverEventArgs> handler = OnTrackListe;
-            handler?.Invoke(this, new TransponderReceiverEventArgs(eks));
+            var handler = TrackListe;
+            if (TrackListe != null)
+                handler?.Invoke(this, new TransponderReceiverEventArgs(eks));
         }
     }
 }
